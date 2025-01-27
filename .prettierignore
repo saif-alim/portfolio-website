@@ -1,0 +1,11 @@
+# Ignore all files
+/*
+
+# Allow only specific directories
+!/public
+!/src
+
+# Ignore generated files in allowed directories
+node_modules
+build
+dist
