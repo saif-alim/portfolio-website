@@ -7,8 +7,8 @@ export const Container = styled.div`
   font-family: "Poppins", sans-serif;
   color: #ffffff;
   background: #0d0d0d;
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 `;
@@ -20,7 +20,15 @@ export const Header = styled.header`
   padding: 20px 40px;
 `;
 
-export const Logo = styled.h1`
+export const Footer = styled.footer`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+`;
+
+export const LogoText = styled.h1`
   color: #ffffff;
   font-family: "Outfit", sans-serif;
   letter-spacing: 7px;
@@ -33,6 +41,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavItem = styled.span`
+  text-decoration: none;
   cursor: pointer;
   color: #fff;
   font-family: "Space Mono", serif;
@@ -41,26 +50,31 @@ export const NavItem = styled.span`
   }
 `;
 
-export const Hero = styled.div`
+export const Section = styled.div`
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  margin: 100px;
+  box-sizing: border-box;
+`;
+
+export const HomeSection = styled(Section)`
+  height: 87vh;
+  padding-top: 125px;
+  padding-left: 8vw;
+  padding-right: 8vw;
 `;
 
 export const Title = styled.div`
-  width: 50%;
   flex: 1;
 `;
 
 export const HeroImage = styled.div`
-  width: 50%;
-  flex-shrink: 0; /* Prevents HeroImage from shrinking */
   img {
-    max-width: 600px; /* Adjust the image size */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    max-width: 600px;
   }
 `;
 
-export const Name = styled.h1`
+export const Heading = styled.h1`
   font-size: 5rem;
   margin-bottom: 5px;
   letter-spacing: 2px;
@@ -73,7 +87,6 @@ export const Subtitle = styled.p`
   font-size: 1.5rem;
   font-weight: 300;
   font-family: "Space Mono", serif;
-  text-transform: uppercase;
   letter-spacing: 4px;
 `;
 
@@ -109,3 +122,14 @@ export const Background = styled.div`
   clip-path: circle(60% at center);
   z-index: 1;
 `;
+
+export const Logo = () => {
+  return (
+    <div style={{ display: "grid" }}>
+      <div
+        style={{ gridArea: "1 / 1 / 2 / 2", backgroundColor: "#9A19E0" }}
+      ></div>
+      <LogoText>saifalim_</LogoText>
+    </div>
+  );
+};
