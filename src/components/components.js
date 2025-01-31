@@ -20,21 +20,6 @@ export const Header = styled.header`
   padding: 20px 40px;
 `;
 
-export const Footer = styled.footer`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-`;
-
-export const LogoText = styled.h1`
-  color: #ffffff;
-  font-family: "Outfit", sans-serif;
-  letter-spacing: 7px;
-  font-size: 2.5rem;
-`;
-
 export const Nav = styled.nav`
   display: flex;
   gap: 50px;
@@ -58,7 +43,6 @@ export const Section = styled.div`
 `;
 
 export const HomeSection = styled(Section)`
-  height: 87vh;
   padding-top: 125px;
   padding-left: 8vw;
   padding-right: 8vw;
@@ -123,13 +107,41 @@ export const Background = styled.div`
   z-index: 1;
 `;
 
+const LogoContainer = styled.div`
+  display: grid;
+`;
+
+export const LogoText = styled.h1`
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 7px;
+  font-size: 2.5rem;
+  align-self: flex-start;
+  padding: 0px 8px;
+  margin: 0;
+`;
+
+const LogoHighlight = styled.div`
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #9a19e0;
+  height: 35%;
+  align-self: flex-end;
+`;
+
+const LogoTextContainer = styled.div`
+  grid-column: 1;
+  grid-row: 1;
+  text-align: center;
+`;
+
 export const Logo = () => {
   return (
-    <div style={{ display: "grid" }}>
-      <div
-        style={{ gridArea: "1 / 1 / 2 / 2", backgroundColor: "#9A19E0" }}
-      ></div>
-      <LogoText>saifalim_</LogoText>
-    </div>
+    <LogoContainer>
+      <LogoHighlight />
+      <LogoTextContainer>
+        <LogoText>saifalim_</LogoText>
+      </LogoTextContainer>
+    </LogoContainer>
   );
 };

@@ -10,7 +10,7 @@ import {
 
 const Home = () => {
   return (
-    <HomeSection style={{ height: "87vh" }}>
+    <HomeSection style={{ height: "auto" }}>
       <Title>
         <Heading>
           SAIF UL ALIM <br /> AHMED
@@ -20,7 +20,7 @@ const Home = () => {
         </Subtitle>
       </Title>
       <HeroImage>
-        <img src="./assets/alim-the-thinker_dark-mode.png" alt="Profile" />
+        <img src="/assets/alim-the-thinker_dark-mode.png" alt="Avatar" />
       </HeroImage>
     </HomeSection>
   );
