@@ -8,6 +8,7 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
+  padding-top: 40px;
 `;
 
 const Nav = styled.nav`

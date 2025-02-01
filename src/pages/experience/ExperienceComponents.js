@@ -7,11 +7,7 @@ export const Subsection = styled(Section)`
   max-width: 50vw;
   min-width: 575px;
   padding: 2.5vw;
-`;
-
-export const SubsectionTitle = styled(Subtitle)`
-  color: #949494;
-  height: 50px;
+  padding-left: 0;
 `;
 
 export const SubsectionContent = styled.div`

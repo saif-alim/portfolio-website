@@ -40,6 +40,7 @@ export const Section = styled.div`
   width: 100vw;
   display: flex;
   box-sizing: border-box;
+  padding: 0 3%;
 `;
 
 export const HomeSection = styled(Section)`
@@ -72,6 +73,16 @@ export const Subtitle = styled.p`
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
+`;
+
+export const SectionTitle = styled.p`
+  font-size: 2rem;
+  color: rgb(158, 158, 158);
+  font-weight: 300;
+  font-family: "Space Mono", serif;
+  letter-spacing: 4px;
+  height: 50px;
+  text-transform: uppercase;
 `;
 
 export const FeaturedIn = styled.div`

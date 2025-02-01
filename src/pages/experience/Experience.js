@@ -1,8 +1,7 @@
-import { Section } from "../../components/Components";
+import { Section, SectionTitle } from "../../components/Components";
 import {
   Subsection,
   SubsectionContent,
-  SubsectionTitle,
   ResumeSection,
 } from "./ExperienceComponents";
 
@@ -10,7 +9,7 @@ const Experience = () => {
   return (
     <Section>
       <Subsection>
-        <SubsectionTitle>EXPERIENCE</SubsectionTitle>
+        <SectionTitle>EXPERIENCE</SectionTitle>
         <SubsectionContent>
           <ResumeSection
             title="Company Name"
@@ -33,7 +32,7 @@ const Experience = () => {
         </SubsectionContent>
       </Subsection>
       <Subsection>
-        <SubsectionTitle>EDUCATION</SubsectionTitle>
+        <SectionTitle>EDUCATION</SectionTitle>
         <ResumeSection
           title="Company Name"
           jobTitle="Job Title"

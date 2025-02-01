@@ -9,9 +9,9 @@ const Footer = styled.footer`
   justify-content: space-between;
   max-width: 100vw;
   padding-top: 20px;
-  padding-bottom: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-bottom: 80px;
+  padding-left: 20px;
+  padding-right: 40px;
 `;
 
 const SocialsSection = styled.div`
@@ -32,6 +32,7 @@ const Icon = styled.img`
 
 const Email = styled(Subtitle)`
   font-size: 1.5rem;
+  margin-bottom: 20px;
 `;
 
 const FooterSection = () => {

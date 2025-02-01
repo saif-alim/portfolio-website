@@ -25,8 +25,18 @@ const App = () => {
       <div id="projects">
         <Projects />
       </div>
-      <Contact />
-      <FooterSection />
+      <div
+        id="contact"
+        style={{
+          display: "flex",
+          "flex-direction": "column",
+          justifyContent: "space-between",
+          minHeight: "100vh",
+        }}
+      >
+        <Contact />
+        <FooterSection />
+      </div>
     </Container>
   );
 };

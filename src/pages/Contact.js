@@ -1,67 +1,111 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-import {
-  Subsection,
-  SubsectionContent,
-  SubsectionTitle,
-  ResumeSection,
-} from "./experience/ExperienceComponents";
+import { Section, SectionTitle } from "../components/Components";
 
-const ContactSection = styled.div`
-  flex-grow: 1;
-  width: 100vw;
-  display: flex;
-  box-sizing: border-box;
-`;
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    tags: ["Pants", "Green", "Sage", "Women"],
+    folder: "Fashion",
+  });
 
-const Experience = () => {
   return (
     <ContactSection>
-      <Subsection>
-        <SubsectionTitle>EXPERIENCE</SubsectionTitle>
-        <SubsectionContent>
-          <ResumeSection
-            title="Company Name"
-            jobTitle="Job Title"
-            startDate="Jan 2024"
-            endDate="Present"
+      <SectionTitle>Contact</SectionTitle>
+      <FormContainer>
+        <Label>
+          Name:
+          <Input
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
-          <ResumeSection
-            title="Company Name"
-            jobTitle="Job Title"
-            startDate="Jan 2024"
-            endDate="Present"
+        </Label>
+
+        <Label>
+          Email:
+          <Input
+            type="email"
+            value={formData.link}
+            onChange={(e) => setFormData({ ...formData, link: e.target.value })}
           />
-          <ResumeSection
-            title="Company Name"
-            jobTitle="Job Title"
-            startDate="Jan 2024"
-            endDate="Present"
+        </Label>
+
+        <Label>
+          Message:
+          <TextArea
+            placeholder="Type your message here..."
+            value={formData.description}
+            onChange={(e) =>
+              setFormData({ ...formData, description: e.target.value })
+            }
           />
-        </SubsectionContent>
-      </Subsection>
-      <Subsection>
-        <SubsectionTitle>EDUCATION</SubsectionTitle>
-        <ResumeSection
-          title="Company Name"
-          jobTitle="Job Title"
-          startDate="Jan 2024"
-          endDate="Present"
-        />
-        <ResumeSection
-          title="Company Name"
-          jobTitle="Job Title"
-          startDate="Jan 2024"
-          endDate="Present"
-        />
-        <ResumeSection
-          title="Company Name"
-          jobTitle="Job Title"
-          startDate="Jan 2024"
-          endDate="Present"
-        />
-      </Subsection>
+        </Label>
+      </FormContainer>
     </ContactSection>
   );
 };
 
-export default Experience;
+const ContactSection = styled(Section)`
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0% 3%;
+`;
+
+const FormContainer = styled.div`
+  width: 100vw;
+  max-width: 1000px;
+  padding: 20px;
+  align-self: center;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const Label = styled.label`
+  padding: 5px;
+  color: rgb(172, 172, 172);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: "Space Mono", serif;
+  letter-spacing: 4px;
+`;
+
+const Input = styled.input`
+  background: #0d0d0d;
+  height: 30px;
+  border: 1px solid #fff;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  outline: none;
+  &:focus {
+    border-color: #9a19e0;
+  }
+`;
+
+const TextArea = styled.textarea`
+  background: #0d0d0d;
+  border: 1px solid #fff;
+  font-family: "Space Mono", serif;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  height: 300px;
+  resize: none;
+  outline: none;
+  &:focus {
+    border-color: #9a19e0;
+  }
+`;
+
+export default ContactForm;
