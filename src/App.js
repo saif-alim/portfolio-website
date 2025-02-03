@@ -12,11 +12,10 @@ import FooterSection from "./components/Footer";
 const App = () => {
   return (
     <Container>
+      <HeaderSection />
       <div id="home-display" style={{ height: "100vh" }}>
         <div id="home" />
-        <div id="header">
-          <HeaderSection />
-        </div>
+        <div id="dummy-header" style={{ height: "110px" }}></div>
         <Home />
       </div>
       <div id="experience">
