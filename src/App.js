@@ -14,8 +14,10 @@ const App = () => {
     <Container>
       <HeaderSection />
       <div id="home-display" style={{ height: "100vh" }}>
+        {/* dummy div to scroll to */}
         <div id="home" />
-        <div id="dummy-header" style={{ height: "110px" }}></div>
+        {/* dummy div for spacing */}
+        <div id="dummy-header" style={{ height: "110px" }} />
         <Home />
       </div>
       <div id="experience">
