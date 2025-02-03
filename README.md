@@ -1,7 +1,3 @@
-Got it! Here’s an updated **README** for your **portfolio website React app**:
-
----
-
 # **Portfolio Website**
 
 This is my personal portfolio website built with React. It showcases my projects, skills, and experience as a developer. The website also includes sections for contact information and links to my social profiles.
@@ -39,8 +35,4 @@ This is my personal portfolio website built with React. It showcases my projects
 ## **Future Enhancements**  
 - Interactive project details  
 - Blog section for tech articles  
-- Resume download option  
-
----
-
-Feel free to modify it as needed! Let me know if you need any other sections added. 😄
+- Resume download option
