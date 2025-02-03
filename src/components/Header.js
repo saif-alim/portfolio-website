@@ -26,6 +26,7 @@ const NavItem = styled.span`
   cursor: pointer;
   color: #fff;
   font-family: "Space Mono", serif;
+  transition: color 0.1s ease-in-out;
   &:hover {
     color: #a244d5;
   }
@@ -51,7 +52,12 @@ const HeaderSection = () => {
   }, [prevScrollpos]);
   return (
     <Header style={{ top: `${top}px`, transition: "top 0.5s" }}>
-      <Logo />
+      <div
+        onClick={() => scrollToSection("home")}
+        style={{ cursor: "pointer" }}
+      >
+        <Logo />
+      </div>
       <Nav>
         <NavItem onClick={() => scrollToSection("home")}>// home</NavItem>
         <NavItem onClick={() => scrollToSection("experience")}>
