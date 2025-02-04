@@ -16,7 +16,7 @@ const ContactForm = () => {
       <SectionTitle>Contact</SectionTitle>
       <FormContainer>
         <Label>
-          Name:
+          Name
           <Input
             type="text"
             value={formData.name}
@@ -25,7 +25,7 @@ const ContactForm = () => {
         </Label>
 
         <Label>
-          Email:
+          Email
           <Input
             type="email"
             value={formData.link}
@@ -34,9 +34,8 @@ const ContactForm = () => {
         </Label>
 
         <Label>
-          Message:
+          Message
           <TextArea
-            placeholder="Type your message here..."
             value={formData.description}
             onChange={(e) =>
               setFormData({ ...formData, description: e.target.value })
@@ -49,7 +48,7 @@ const ContactForm = () => {
 };
 
 const ContactSection = styled(Section)`
-  height: auto;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   padding: 0% 3%;
@@ -82,12 +81,13 @@ const Label = styled.label`
 
 const Input = styled.input`
   background: #0d0d0d;
-  height: 30px;
+  height: 40px;
   border: 1px solid #fff;
   color: white;
   padding: 10px;
   font-size: 1rem;
   outline: none;
+  transition: border-color 0.2s ease-in-out;
   &:focus {
     border-color: #9a19e0;
   }

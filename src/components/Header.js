@@ -27,8 +27,10 @@ const NavItem = styled.span`
   color: #fff;
   font-family: "Space Mono", serif;
   transition: color 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   &:hover {
     color: #a244d5;
+    transform: scale(1.05);
   }
 `;
 
