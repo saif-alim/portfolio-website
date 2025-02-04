@@ -38,7 +38,7 @@ export const NavItem = styled.span`
 `;
 
 export const Section = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   box-sizing: border-box;
@@ -79,7 +79,6 @@ export const Subtitle = styled.p`
 
 export const SectionTitle = styled.p`
   font-size: 2rem;
-  color: rgb(158, 158, 158);
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;

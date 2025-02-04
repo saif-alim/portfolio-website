@@ -35,10 +35,12 @@ const Icon = styled.div`
 
   svg {
     transition: fill 0.1s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 
   &:hover svg {
     fill: #a244d5;
+    transform: scale(1.1);
   }
 `;
 
@@ -54,8 +56,10 @@ const Email = styled.a`
   text-decoration: none;
   &:hover {
     color: #a244d5;
+    transform: scale(1.02);
   }
   transition: color 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 `;
 
 const FooterSection = () => {

@@ -4,10 +4,18 @@ const LogoContainer = styled.div`
   display: inline-block;
   position: relative;
   align-self: flex-start;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const LogoTextContainer = styled.div`
   text-align: center;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.001);
+  }
 `;
 
 export const LogoText = styled.h1`
@@ -29,6 +37,10 @@ const LogoHighlight = styled.div`
   height: 35%;
   background-color: #9a19e0;
   z-index: 0;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const Logo = () => {
