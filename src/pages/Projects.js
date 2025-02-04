@@ -10,7 +10,7 @@ const Projects = () => {
           projectTitle={"Hijra"}
           projectHeadline={"Prayer Room Locator"}
           subtitle={"Flutter, Firebase"}
-          imgSrc={"/assets/placeholders/thumbnail.png"}
+          imgSrc={"/assets/projects/hijra-mockup.png"}
           columnSpan={2}
         >
           Project 1
@@ -19,15 +19,15 @@ const Projects = () => {
           projectTitle={"Spendi"}
           projectHeadline={"Expense Tracker"}
           subtitle={"Kotlin, Android"}
-          imgSrc={"/assets/placeholders/thumbnail.png"}
+          imgSrc={"/assets/projects/spendi-mockup.png"}
         >
           Project 2
         </GridItem>
         <GridItem
-          projectTitle={"Project Name"}
-          projectHeadline={"Project Header"}
-          subtitle={"Technology"}
-          imgSrc={"/assets/placeholders/thumbnail.png"}
+          projectTitle={"Alim's Portfolio"}
+          projectHeadline={"Portfolio Website"}
+          subtitle={"React"}
+          imgSrc={"/assets/projects/portfolio-website-mockup.jpeg"}
         >
           Project 3
         </GridItem>
@@ -35,7 +35,7 @@ const Projects = () => {
           projectTitle={"Ocean Odyssey"}
           projectHeadline={"Platformer Game"}
           subtitle={"Unity, C#"}
-          imgSrc={"/assets/placeholders/thumbnail.png"}
+          imgSrc={"/assets/projects/oceanody-gameplay-mockup-cropped.jpeg"}
           columnSpan={2}
         >
           Project 4
@@ -49,15 +49,20 @@ export default Projects;
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 20px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
 `;
 
 const GridItemContainer = styled.div`
   border: 1px solid #fff;
+  padding: 10px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
     border-color: #9a19e0;
+    cursor: pointer;
   }
   color: white;
   display: flex;
@@ -67,8 +72,7 @@ const GridItemContainer = styled.div`
 `;
 
 const GridItemTitle = styled.p`
-  margin-top: 5px;
-  margin-bottom: 2px;
+  margin: 0;
   letter-spacing: 2px;
   font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
@@ -86,8 +90,9 @@ const GridItemSubtitle = styled.p`
 `;
 
 const GridItemImage = styled.img`
-  max-width: 95%;
-  padding-bottom: 10px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 `;
 
 const GridItem = ({
@@ -102,7 +107,7 @@ const GridItem = ({
     <GridItemContainer
       style={{ gridColumn: `span ${columnSpan}`, gridRow: `span ${rowSpan}` }}
     >
-      <div style={{ textAlign: "left", width: "95%" }}>
+      <div style={{ textAlign: "left", width: "100%" }}>
         <GridItemTitle>
           <b>{projectTitle}</b>: {projectHeadline}
         </GridItemTitle>
