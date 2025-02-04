@@ -16,7 +16,7 @@ https://saifalim.pages.dev
 - **Frontend:** React  
 - **Styling:** Styled-components  
 - **Icons:** SVGs  
-- **Responsive Design:** Fully responsive layout for mobile and desktop  
+- **Responsive Design:** Fully responsive layout for desktop  
 
 ## **Setup & Installation**  
 1. Clone the repository:  
@@ -36,6 +36,7 @@ https://saifalim.pages.dev
 4. Open your browser and navigate to `http://localhost:3000`.
 
 ## **Future Enhancements**  
-- Interactive project details  
-- Blog section for tech articles  
+- Project Details Page 
+- Light Mode / Dark Mode
+- Mobile functionality
 - Resume download option
