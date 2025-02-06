@@ -45,6 +45,11 @@ const Experience = () => {
           startDate="Jun 2024"
         />
         <ResumeSection
+          title="Android App Development Masterclass using Kotlin"
+          jobTitle="Udemy Course"
+          startDate="Aug 2024"
+        />
+        <ResumeSection
           title="A-Level Mathematics, Physics, Art and Design"
           jobTitle="The Judd School"
           startDate="May 2020"
