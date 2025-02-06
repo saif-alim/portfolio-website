@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
-import "./styles.css";
 import Home from "./pages/Home";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
@@ -30,7 +29,7 @@ const App = () => {
         id="contact"
         style={{
           display: "flex",
-          "flex-direction": "column",
+          flexDirection: "column",
           justifyContent: "space-between",
           minHeight: "100vh",
         }}

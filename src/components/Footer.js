@@ -31,7 +31,7 @@ const Icons = styled.div`
 
 const Icon = styled.div`
   box-sizing: border-box;
-  fill: #fff;
+  fill: var(--color-foreground);
 
   svg {
     transition: fill 0.1s ease-in-out;

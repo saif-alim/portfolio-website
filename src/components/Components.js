@@ -7,8 +7,7 @@ export const Container = styled.div`
   overflow-x: hidden;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #ffffff;
-  background: #0d0d0d;
+  // color: #fff;
   height: auto;
   min-height: 100vh;
   display: flex;
@@ -30,7 +29,7 @@ export const Nav = styled.nav`
 export const NavItem = styled.span`
   text-decoration: none;
   cursor: pointer;
-  color: #fff;
+  // color: #fff;
   font-family: "Space Mono", serif;
   &:hover {
     color: #a244d5;
@@ -53,12 +52,6 @@ export const HomeSection = styled(Section)`
 
 export const Title = styled.div`
   flex: 1;
-`;
-
-export const HeroImage = styled.div`
-  img {
-    max-width: 600px;
-  }
 `;
 
 export const Heading = styled.h1`
@@ -108,23 +101,12 @@ export const Logos = styled.div`
   }
 `;
 
-export const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, #3a3a3a, #0d0d0d);
-  clip-path: circle(60% at center);
-  z-index: 1;
-`;
-
 const LogoContainer = styled.div`
   display: grid;
 `;
 
 export const LogoText = styled.h1`
-  color: #ffffff;
+  // color: #fff;
   font-family: "Outfit", sans-serif;
   letter-spacing: 7px;
   font-size: 2.5rem;

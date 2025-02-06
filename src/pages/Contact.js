@@ -60,7 +60,6 @@ const FormContainer = styled.div`
   padding: 20px;
   align-self: center;
   border-radius: 10px;
-  color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -68,7 +67,6 @@ const FormContainer = styled.div`
 
 const Label = styled.label`
   padding: 5px;
-  color: rgb(172, 172, 172);
   font-size: 0.9rem;
   display: flex;
   flex-direction: column;
@@ -80,10 +78,10 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  background: #0d0d0d;
+  background: var(--color-background);
   height: 40px;
-  border: 1px solid #fff;
-  color: white;
+  border: var(--border-style) var(--color-foreground);
+  color: var(--color-foreground);
   padding: 10px;
   font-size: 1rem;
   outline: none;
@@ -94,15 +92,16 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  background: #0d0d0d;
-  border: 1px solid #fff;
+  background: var(--color-background);
+  border: var(--border-style) var(--color-foreground);
+  color: var(--color-foreground);
   font-family: "Space Mono", serif;
-  color: white;
   padding: 10px;
   font-size: 1rem;
   height: 300px;
   resize: none;
   outline: none;
+  transition: border-color 0.2s ease-in-out;
   &:focus {
     border-color: #9a19e0;
   }

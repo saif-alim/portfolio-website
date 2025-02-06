@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Logo } from "./Logo";
 import scrollToSection from "../utils/Utils";
+import { ToggleTheme } from "../utils/ToggleTheme";
 
 const Header = styled.header`
   display: flex;
   box-sizing: border-box;
-  background-color: #0d0d0d;
   width: 100%;
+  background: var(--color-background);
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -19,12 +20,12 @@ const Header = styled.header`
 const Nav = styled.nav`
   display: flex;
   gap: 50px;
+  align-items: center;
 `;
 
 const NavItem = styled.span`
   text-decoration: none;
   cursor: pointer;
-  color: #fff;
   font-family: "Space Mono", serif;
   transition: color 0.1s ease-in-out;
   transition: transform 0.2s ease-in-out;
@@ -69,6 +70,7 @@ const HeaderSection = () => {
           // projects
         </NavItem>
         <NavItem onClick={() => scrollToSection("contact")}>// contact</NavItem>
+        <ToggleTheme />
       </Nav>
     </Header>
   );

@@ -80,7 +80,7 @@ export const ResumeContent = styled.div`
   flex-direction: row;
   padding: 5%;
   height: 50px;
-  border: 1px solid #fff;
+  border: var(--border-style) var(--color-foreground);
   transition: border-color 0.2s ease-in-out;
   &:hover {
     border-color: #9a19e0;
