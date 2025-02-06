@@ -57,14 +57,13 @@ const GridContainer = styled.div`
 `;
 
 const GridItemContainer = styled.div`
-  border: 1px solid #fff;
+  border: var(--border-style);
   padding: 10px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
     border-color: #9a19e0;
     cursor: pointer;
   }
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;

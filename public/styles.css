@@ -1,0 +1,30 @@
+html {
+  --color-background: #0d0d0d;
+  --color-foreground: white;
+  --border-style: 1px solid;
+}
+
+html.light {
+  --color-background: white;
+  --color-foreground: #0d0d0d;
+  --border-style: 1.5px solid;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  border: var(--color-foreground);
+  transition: color 0.5s ease-in-out;
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    --color-background: white;
+    --color-foreground: #0d0d0d;
+    --border-style: 1.5px solid;
+
+    background: var(--color-background);
+    color: var(--color-foreground);
+    border: var(--color-foreground);
+  }
+}

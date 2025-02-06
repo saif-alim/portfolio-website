@@ -19,7 +19,7 @@ const LogoTextContainer = styled.div`
 `;
 
 export const LogoText = styled.h1`
-  color: #ffffff;
+  // color: #fff;
   font-family: "Outfit", sans-serif;
   letter-spacing: 7px;
   font-size: 2.5rem;

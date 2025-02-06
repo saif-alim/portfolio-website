@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React from "react";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import {
   HomeSection,
   Title,
   Heading,
   Subtitle,
-  HeroImage,
 } from "../components/Components";
 
 const Home = () => {
@@ -19,11 +19,44 @@ const Home = () => {
           Software Engineer, <br /> App Developer.
         </Subtitle>
       </Title>
-      <HeroImage>
-        <img src="/assets/alim-the-thinker_dark-mode.png" alt="Avatar" />
-      </HeroImage>
+      <ThemedImage />
     </HomeSection>
   );
 };
 
 export default Home;
+
+const ThemedImage = () => {
+  const [isLightMode, toggle] = useState(
+    document.documentElement.classList.contains("light"),
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      toggle(document.documentElement.classList.contains("light"));
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <HeroImage>
+      <img
+        src={
+          isLightMode
+            ? "/assets/alim-the-thinker_light-mode.png"
+            : "/assets/alim-the-thinker_dark-mode.png"
+        }
+        alt="Avatar"
+      />
+    </HeroImage>
+  );
+};
+
+const HeroImage = styled.div`
+  img {
+    max-width: 600px;
+  }
+`;
