@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 
 export const ToggleTheme = () => {
-  const [isLightMode, toggle] = useState(true);
+  const [isLightMode, toggle] = useState(false);
 
   useMediaQuery(
     {
