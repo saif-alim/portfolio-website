@@ -57,7 +57,7 @@ const GridContainer = styled.div`
 `;
 
 const GridItemContainer = styled.div`
-  border: var(--border-style);
+  border: var(--border-style) var(--color-foreground);
   padding: 10px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
