@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Section, SectionTitle } from "../components/Components";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import useWeb3Forms from "@web3forms/react";
@@ -20,14 +20,25 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
   });
 
+  const senderName = useWatch({
+    control: control,
+    name: "name",
+    defaultValue: "Someone",
+  });
+
   // Initialize Web3Forms hook
   const { submit } = useWeb3Forms({
     access_key: "65e50a94-6074-423e-8f0c-f895ba59b5a9",
+    settings: {
+      from_name: "Portfolio Mailer",
+      subject: `Message from ${senderName}`,
+    },
     onSuccess: (response) => {
       setIsDialogOpen(true);
       reset(); // Clear the form after successful submission
@@ -46,6 +57,7 @@ const ContactForm = () => {
     <ContactSection>
       <SectionTitle>Contact</SectionTitle>
       <FormContainer className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+        <input type="hidden" {...register("subject")} />
         <Label>
           Name
           <Input type="text" {...register("name")} />
