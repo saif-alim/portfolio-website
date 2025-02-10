@@ -1,57 +1,83 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Section, SectionTitle } from "../components/Components";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import useWeb3Forms from "@web3forms/react";
+
+// Define Zod validation schema
+const schema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(1, "Message cannot be empty"),
+});
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-    tags: ["Pants", "Green", "Sage", "Women"],
-    folder: "Fashion",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
   });
+
+  // Initialize Web3Forms hook
+  const { submit } = useWeb3Forms({
+    access_key: "65e50a94-6074-423e-8f0c-f895ba59b5a9",
+    onSuccess: (response) => {
+      alert("Your message has been sent successfully!");
+      reset(); // Clear the form after successful submission
+    },
+    onError: (error) => {
+      alert("Something went wrong. Please try again later.");
+      console.error(error);
+    },
+  });
+
+  const onSubmit = (data) => {
+    submit(data);
+  };
 
   return (
     <ContactSection>
       <SectionTitle>Contact</SectionTitle>
-      <FormContainer>
+      <FormContainer className="contact-form" onSubmit={handleSubmit(onSubmit)}>
         <Label>
           Name
-          <Input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
+          <Input type="text" {...register("name")} />
+          {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </Label>
 
         <Label>
           Email
-          <Input
-            type="email"
-            email="email"
-            value={formData.link}
-            onChange={(e) => setFormData({ ...formData, link: e.target.value })}
-          />
+          <Input type="email" {...register("email")} />
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Label>
 
         <Label>
           Message
-          <TextArea
-            value={formData.description}
-            name="message"
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-          />
+          <TextArea {...register("message")} />
+          {errors.message && (
+            <ErrorMessage>{errors.message.message}</ErrorMessage>
+          )}
         </Label>
-        <SubmitButton class="form-submit" type="submit">
+
+        <SubmitButton className="form-submit" type="submit">
           Submit
         </SubmitButton>
       </FormContainer>
     </ContactSection>
   );
 };
+
+// Styled components
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+`;
 
 const SubmitButton = styled.button`
   max-width: 200px;
