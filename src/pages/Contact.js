@@ -14,6 +14,8 @@ const schema = z.object({
 });
 
 const ContactForm = () => {
+  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+
   const {
     register,
     handleSubmit,
@@ -27,7 +29,7 @@ const ContactForm = () => {
   const { submit } = useWeb3Forms({
     access_key: "65e50a94-6074-423e-8f0c-f895ba59b5a9",
     onSuccess: (response) => {
-      alert("Your message has been sent successfully!");
+      setIsDialogOpen(true);
       reset(); // Clear the form after successful submission
     },
     onError: (error) => {
@@ -52,7 +54,7 @@ const ContactForm = () => {
 
         <Label>
           Email
-          <Input type="email" {...register("email")} />
+          <Input type="text" {...register("email")} />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Label>
 
@@ -68,11 +70,81 @@ const ContactForm = () => {
           Submit
         </SubmitButton>
       </FormContainer>
+
+      {isDialogOpen && (
+        <ModalOverlay>
+          <ModalContent>
+            <ModalTitle>Thank You!</ModalTitle>
+            <ModalMessage>
+              Your message has been sent successfully.
+            </ModalMessage>
+            <CloseButton onClick={() => setIsDialogOpen(false)}>
+              Close
+            </CloseButton>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </ContactSection>
   );
 };
 
 // Styled components
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalContent = styled.div`
+  border: var(--border-style) var(--color-foreground);
+  background: var(--color-background);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+`;
+
+const CloseButton = styled.button`
+  border: var(--border-style) var(--color-foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  margin-top: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+  &:hover {
+    border-color: #9a19e0;
+  }
+  font-family: "Space Mono", serif;
+  letter-spacing: 4px;
+`;
+
+const ModalTitle = styled.p`
+  margin: 0;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: "Quicksand", sans-serif;
+`;
+
+const ModalMessage = styled.p`
+  margin-top: 0px;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: "Space Mono", serif;
+  letter-spacing: 4px;
+`;
+
 const ErrorMessage = styled.p`
   color: red;
   font-size: 0.8rem;
