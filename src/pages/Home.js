@@ -1,12 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import {
-  HomeSection,
-  Title,
-  Heading,
-  Subtitle,
-} from "../components/Components";
+import { Heading, Subtitle, Section } from "../components/Components";
 
 const Home = () => {
   return (
@@ -19,44 +14,29 @@ const Home = () => {
           Software Engineer, <br /> App Developer.
         </Subtitle>
       </Title>
-      <ThemedImage />
+      <div>
+        <HeroImage src="/assets/alim-the-thinker.png" />
+      </div>
     </HomeSection>
   );
 };
 
 export default Home;
 
-const ThemedImage = () => {
-  const [isLightMode, toggle] = useState(
-    document.documentElement.classList.contains("light"),
-  );
+export const HomeSection = styled(Section)`
+  padding-top: 125px;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  padding-bottom: 125px;
+  height: auto;
+`;
 
-  useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      toggle(document.documentElement.classList.contains("light"));
-    });
+const HeroImage = styled.img`
+  height: 60vh;
+  min-height: 400px;
+  max-height: 100%;
+`;
 
-    observer.observe(document.documentElement, { attributes: true });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <HeroImage>
-      <img
-        src={
-          isLightMode
-            ? "/assets/alim-the-thinker_light-mode.png"
-            : "/assets/alim-the-thinker_dark-mode.png"
-        }
-        alt="Avatar"
-      />
-    </HeroImage>
-  );
-};
-
-const HeroImage = styled.div`
-  img {
-    max-width: 600px;
-  }
+const Title = styled.div`
+  flex: 1;
 `;

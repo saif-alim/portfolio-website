@@ -14,44 +14,12 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-`;
-
-export const Nav = styled.nav`
-  display: flex;
-  gap: 50px;
-`;
-
-export const NavItem = styled.span`
-  text-decoration: none;
-  cursor: pointer;
-  // color: #fff;
-  font-family: "Space Mono", serif;
-  &:hover {
-    color: #a244d5;
-  }
-`;
-
 export const Section = styled.div`
   min-height: 100vh;
   width: 100vw;
   display: flex;
   box-sizing: border-box;
   padding: 0 3%;
-`;
-
-export const HomeSection = styled(Section)`
-  padding-top: 125px;
-  padding-left: 8vw;
-  padding-right: 8vw;
-`;
-
-export const Title = styled.div`
-  flex: 1;
 `;
 
 export const Heading = styled.h1`
@@ -78,64 +46,3 @@ export const SectionTitle = styled.p`
   height: 50px;
   text-transform: uppercase;
 `;
-
-export const FeaturedIn = styled.div`
-  margin-top: 20px;
-  text-align: center;
-  p {
-    margin-bottom: 10px;
-    font-size: 1rem;
-  }
-`;
-
-export const Logos = styled.div`
-  display: flex;
-  gap: 20px;
-  img {
-    height: 30px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-    &:hover {
-      opacity: 1;
-    }
-  }
-`;
-
-const LogoContainer = styled.div`
-  display: grid;
-`;
-
-export const LogoText = styled.h1`
-  // color: #fff;
-  font-family: "Outfit", sans-serif;
-  letter-spacing: 7px;
-  font-size: 2.5rem;
-  align-self: flex-start;
-  padding: 0px 8px;
-  margin: 0;
-`;
-
-const LogoHighlight = styled.div`
-  grid-column: 1;
-  grid-row: 1;
-  background-color: #9a19e0;
-  height: 35%;
-  align-self: flex-end;
-`;
-
-const LogoTextContainer = styled.div`
-  grid-column: 1;
-  grid-row: 1;
-  text-align: center;
-`;
-
-export const Logo = () => {
-  return (
-    <LogoContainer>
-      <LogoHighlight />
-      <LogoTextContainer>
-        <LogoText>saifalim_</LogoText>
-      </LogoTextContainer>
-    </LogoContainer>
-  );
-};
