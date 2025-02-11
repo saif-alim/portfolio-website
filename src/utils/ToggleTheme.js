@@ -1,28 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
 
-export const ToggleTheme = () => {
-  const [isLightMode, toggle] = useState(false);
-
-  useMediaQuery(
-    {
-      query: "(prefers-color-scheme: light)",
-    },
-    undefined,
-    (isSystemLight) => toggle(isSystemLight),
-  );
-
-  useEffect(() => {
-    const htmlElement = document.documentElement;
-
-    if (isLightMode) {
-      htmlElement.classList.add("light");
-    } else {
-      htmlElement.classList.remove("light");
-    }
-  }, [isLightMode]);
-
+export const ToggleTheme = ({ isLightMode, toggleTheme }) => {
   const properties = {
     sun: {
       r: 9,
@@ -53,7 +32,7 @@ export const ToggleTheme = () => {
   };
 
   return (
-    <div className="App">
+    <div className="ToggleTheme">
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -67,9 +46,7 @@ export const ToggleTheme = () => {
         style={{ cursor: "pointer" }}
         animate={{ transform: current.transform }}
         transition={springTransition}
-        onClick={() => {
-          toggle((prev) => !prev);
-        }}
+        onClick={toggleTheme}
       >
         <mask id="mask">
           <rect x="0" y="0" width="100%" height="100%" fill="white" />

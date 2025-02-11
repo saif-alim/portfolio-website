@@ -29,7 +29,7 @@ export const HomeSection = styled(Section)`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    min-height: auto;
+    min-height: 80vh;
     padding: 10px 20px;
   }
 `;

@@ -54,6 +54,10 @@ const Footer = styled.footer`
   padding-bottom: 80px;
   padding-left: 20px;
   padding-right: 40px;
+
+  @media (max-width: 768px) {
+    padding-bottom: 40px;
+  }
 `;
 
 const SocialsSection = styled.div`

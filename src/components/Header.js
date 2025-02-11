@@ -4,11 +4,27 @@ import styled from "styled-components";
 import { Logo } from "./Logo";
 import scrollToSection from "../utils/Utils";
 import { ToggleTheme } from "../utils/ToggleTheme";
+import { useMediaQuery } from "react-responsive";
 
 const HeaderSection = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [top, setTop] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
+  const systemIsLight = useMediaQuery({
+    query: "(prefers-color-scheme: light)",
+  });
+
+  useEffect(() => {
+    setIsLightMode(systemIsLight);
+  }, [systemIsLight]);
+
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    isLightMode
+      ? htmlElement.classList.add("light")
+      : htmlElement.classList.remove("light");
+  }, [isLightMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +56,10 @@ const HeaderSection = () => {
           // projects
         </NavItem>
         <NavItem onClick={() => scrollToSection("contact")}>// contact</NavItem>
-        <ToggleTheme />
+        <ToggleTheme
+          isLightMode={isLightMode}
+          toggleTheme={() => setIsLightMode(!isLightMode)}
+        />
       </Nav>
 
       <MobileMenuButton onClick={() => setIsNavOpen(!isNavOpen)}>
@@ -82,7 +101,11 @@ const HeaderSection = () => {
           >
             // contact
           </MobileNavItem>
-          <ToggleTheme />
+          <ToggleTheme
+            isLightMode={isLightMode}
+            toggleTheme={() => setIsLightMode(!isLightMode)}
+            style={{ display: "none" }}
+          />
         </MobileNav>
       )}
     </Header>
@@ -103,7 +126,7 @@ const Header = styled.header`
   z-index: 1000;
 
   @media (max-width: 768px) {
-    padding: 15px 20px;
+    padding: 10px 15px;
   }
 `;
 
@@ -113,7 +136,7 @@ const Nav = styled.nav`
   align-items: center;
 
   @media (max-width: 768px) {
-    display: none; /* Hide desktop nav on mobile */
+    display: none;
   }
 `;
 
@@ -151,7 +174,7 @@ const MobileMenuButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    display: block; /* Show menu button on mobile */
+    display: block;
   }
 `;
 
@@ -180,7 +203,6 @@ const CloseButton = styled.button`
   color: var(--color-foreground);
   font-size: 1.6rem;
   font-family: "Space Mono", serif;
-  // transform: rotate(72deg);
 `;
 
 const MobileNavItem = styled.span`
