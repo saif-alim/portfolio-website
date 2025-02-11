@@ -132,7 +132,7 @@ const CloseButton = styled.button`
   font-size: 1rem;
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
@@ -173,8 +173,11 @@ const SubmitButton = styled.button`
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease-in-out;
+  &:hover {
+    border-color: var(--color-accent);
+  }
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
@@ -197,6 +200,9 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 768px) {
+    padding: 10px 0px;
+  }
 `;
 
 const Label = styled.label`
@@ -210,12 +216,15 @@ const Label = styled.label`
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const Input = styled.input`
   background: var(--color-background);
   height: 40px;
-  width: 100%;
+  max-width: 95%;
   border: var(--border-style) var(--color-foreground);
   color: var(--color-foreground);
   padding: 10px;
@@ -223,7 +232,7 @@ const Input = styled.input`
   outline: none;
   transition: border-color 0.2s ease-in-out;
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
 `;
 
@@ -237,10 +246,10 @@ const TextArea = styled.textarea`
   height: 300px;
   resize: none;
   outline: none;
-  width: 100%;
+  max-width: 95%;
   transition: border-color 0.2s ease-in-out;
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
 `;
 

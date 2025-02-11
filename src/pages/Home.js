@@ -5,7 +5,7 @@ import { Heading, Subtitle, Section } from "../components/Components";
 
 const Home = () => {
   return (
-    <HomeSection style={{ height: "auto" }}>
+    <HomeSection>
       <Title>
         <Heading>
           SAIF UL ALIM <br /> AHMED
@@ -14,7 +14,7 @@ const Home = () => {
           Software Engineer, <br /> App Developer.
         </Subtitle>
       </Title>
-      <div>
+      <div id="image-container">
         <HeroImage src="/assets/alim-the-thinker.png" />
       </div>
     </HomeSection>
@@ -24,19 +24,32 @@ const Home = () => {
 export default Home;
 
 export const HomeSection = styled(Section)`
-  padding-top: 125px;
-  padding-left: 8vw;
-  padding-right: 8vw;
-  padding-bottom: 125px;
+  padding: 125px 8vw;
   height: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    min-height: auto;
+    padding: 10px 20px;
+  }
 `;
 
 const HeroImage = styled.img`
   height: 60vh;
   min-height: 400px;
   max-height: 100%;
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    height: auto;
+    max-height: auto;
+    width: 80vw;
+  }
 `;
 
 const Title = styled.div`
   flex: 1;
+  @media (max-width: 768px) {
+    flex: 0;
+  }
 `;

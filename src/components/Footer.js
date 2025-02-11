@@ -6,6 +6,45 @@ import { Logo } from "./Logo";
 import styled from "styled-components";
 import scrollToSection from "../utils/Utils";
 
+const FooterSection = () => {
+  return (
+    <Footer>
+      <LogoContainer onClick={() => scrollToSection("home")}>
+        <Logo />
+      </LogoContainer>
+      <SocialsSection>
+        <Email href="mailto:saifalimdev@gmail.com">saifalimdev@gmail.com</Email>
+        <Icons>
+          <a href="https://www.linkedin.com/in/saif-alim">
+            <Icon>
+              <LinkedinIcon />
+            </Icon>
+          </a>
+          <a href="https://github.com/saif-alim/">
+            <Icon>
+              <GithubIcon />
+            </Icon>
+          </a>
+          <a href="https://www.instagram.com/saifalim_/">
+            <Icon>
+              <InstagramIcon />
+            </Icon>
+          </a>
+        </Icons>
+      </SocialsSection>
+    </Footer>
+  );
+};
+
+export default FooterSection;
+
+const LogoContainer = styled.div`
+  cursor: pointer;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const Footer = styled.footer`
   display: flex;
   flex-direction: row;
@@ -39,7 +78,7 @@ const Icon = styled.div`
   }
 
   &:hover svg {
-    fill: #a244d5;
+    fill: var(--color-accent);
     transform: scale(1.1);
   }
 `;
@@ -55,44 +94,13 @@ const Email = styled.a`
   color: inherit;
   text-decoration: none;
   &:hover {
-    color: #a244d5;
+    color: var(--color-accent);
     transform: scale(1.02);
   }
   transition: color 0.1s ease-in-out;
   transition: transform 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
-
-const FooterSection = () => {
-  return (
-    <Footer>
-      <div
-        onClick={() => scrollToSection("home")}
-        style={{ cursor: "pointer" }}
-      >
-        <Logo />
-      </div>
-      <SocialsSection>
-        <Email href="mailto:saifalimdev@gmail.com">saifalimdev@gmail.com</Email>
-        <Icons>
-          <a href="https://www.linkedin.com/in/saif-alim">
-            <Icon>
-              <LinkedinIcon />
-            </Icon>
-          </a>
-          <a href="https://github.com/saif-alim/">
-            <Icon>
-              <GithubIcon />
-            </Icon>
-          </a>
-          <a href="https://www.instagram.com/saifalim_/">
-            <Icon>
-              <InstagramIcon />
-            </Icon>
-          </a>
-        </Icons>
-      </SocialsSection>
-    </Footer>
-  );
-};
-
-export default FooterSection;

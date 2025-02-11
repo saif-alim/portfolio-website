@@ -54,11 +54,11 @@ const Experience = () => {
           jobTitle="The Judd School"
           startDate="May 2020"
         />
-        <ResumeSection
+        {/* <ResumeSection
           title="IGCSE Mathematics, Physics, Chemistry, Biology, English, French"
           jobTitle="Sadhbhavana World School"
           startDate="Jul 2017"
-        />
+        /> */}
       </Subsection>
     </Section>
   );
@@ -75,9 +75,12 @@ const Subsection = styled(Section)`
   display: flex;
   flex-direction: column;
   max-width: 50vw;
-  min-width: 575px;
   padding: 2.5vw;
   padding-left: 0;
+  min-height: auto;
+  @media (max-width: 768px) {
+    max-width: 95vw;
+  }
 `;
 
 export const ResumeContent = styled.div`
@@ -88,9 +91,12 @@ export const ResumeContent = styled.div`
   border: var(--border-style) var(--color-foreground);
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   justify-content: space-between;
+  @media (max-width: 768px) {
+    padding: 2.5%;
+  }
 `;
 
 export const Spacer = styled.div`
@@ -101,10 +107,16 @@ const CompanyName = styled(Heading)`
   margin-top: 0;
   font-size: 1rem;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const JobTitle = styled(Subtitle)`
   font-size: 0.8rem;
+  @media (max-width: 768px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const DatesContainer = styled.div`

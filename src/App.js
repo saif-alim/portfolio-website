@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import { Container } from "./components/Components";
+import { Container, HomeDisplay } from "./components/Components";
 import HeaderSection from "./components/Header";
 import FooterSection from "./components/Footer";
 
@@ -12,13 +12,13 @@ const App = () => {
   return (
     <Container>
       <HeaderSection />
-      <div id="home-display" style={{ height: "100vh" }}>
+      <HomeDisplay>
         {/* dummy div to scroll to */}
         <div id="home" />
         {/* dummy div for spacing */}
         <div id="dummy-header" style={{ height: "110px" }} />
         <Home />
-      </div>
+      </HomeDisplay>
       <div id="experience">
         <Experience />
       </div>

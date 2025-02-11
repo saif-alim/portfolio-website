@@ -54,6 +54,11 @@ const GridContainer = styled.div`
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 const GridItemContainer = styled.div`
@@ -61,7 +66,7 @@ const GridItemContainer = styled.div`
   padding: 10px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
     cursor: pointer;
   }
   display: flex;

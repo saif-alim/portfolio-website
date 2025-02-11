@@ -19,7 +19,6 @@ const LogoTextContainer = styled.div`
 `;
 
 export const LogoText = styled.h1`
-  // color: #fff;
   font-family: "Outfit", sans-serif;
   letter-spacing: 7px;
   font-size: 2.5rem;
@@ -28,6 +27,10 @@ export const LogoText = styled.h1`
   position: relative;
   z-index: 1;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const LogoHighlight = styled.div`
@@ -35,7 +38,7 @@ const LogoHighlight = styled.div`
   bottom: 0;
   width: 100%;
   height: 35%;
-  background-color: #9a19e0;
+  background-color: var(--color-accent);
   z-index: 0;
   transition: transform 0.2s ease-in-out;
   &:hover {
