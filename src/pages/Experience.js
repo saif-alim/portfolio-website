@@ -88,7 +88,7 @@ export const ResumeContent = styled.div`
   border: var(--border-style) var(--color-foreground);
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   justify-content: space-between;
 `;

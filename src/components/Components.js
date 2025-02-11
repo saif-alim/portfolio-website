@@ -7,7 +7,6 @@ export const Container = styled.div`
   overflow-x: hidden;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  // color: #fff;
   height: auto;
   min-height: 100vh;
   display: flex;

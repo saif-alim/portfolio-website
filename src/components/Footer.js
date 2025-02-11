@@ -39,7 +39,7 @@ const Icon = styled.div`
   }
 
   &:hover svg {
-    fill: #a244d5;
+    fill: var(--color-accent);
     transform: scale(1.1);
   }
 `;
@@ -55,7 +55,7 @@ const Email = styled.a`
   color: inherit;
   text-decoration: none;
   &:hover {
-    color: #a244d5;
+    color: var(--color-accent);
     transform: scale(1.02);
   }
   transition: color 0.1s ease-in-out;

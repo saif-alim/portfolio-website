@@ -30,7 +30,7 @@ const NavItem = styled.span`
   transition: color 0.1s ease-in-out;
   transition: transform 0.2s ease-in-out;
   &:hover {
-    color: #a244d5;
+    color: var(--color-accent);
     transform: scale(1.05);
   }
 `;

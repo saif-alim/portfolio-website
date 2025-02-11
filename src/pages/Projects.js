@@ -61,7 +61,7 @@ const GridItemContainer = styled.div`
   padding: 10px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
     cursor: pointer;
   }
   display: flex;

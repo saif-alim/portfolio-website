@@ -132,7 +132,7 @@ const CloseButton = styled.button`
   font-size: 1rem;
   transition: border-color 0.2s ease-in-out;
   &:hover {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
@@ -173,8 +173,11 @@ const SubmitButton = styled.button`
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease-in-out;
+  &:hover {
+    border-color: var(--color-accent);
+  }
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
@@ -223,7 +226,7 @@ const Input = styled.input`
   outline: none;
   transition: border-color 0.2s ease-in-out;
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
 `;
 
@@ -240,7 +243,7 @@ const TextArea = styled.textarea`
   width: 100%;
   transition: border-color 0.2s ease-in-out;
   &:focus {
-    border-color: #9a19e0;
+    border-color: var(--color-accent);
   }
 `;
 
