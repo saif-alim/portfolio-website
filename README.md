@@ -3,7 +3,7 @@
 This is my personal portfolio website built with React. It showcases my projects, skills, and experience as a developer. The website also includes sections for contact information and links to my social profiles.
 
 ## Link to Site
-https://saifalim.pages.dev
+https://saifalim.dev
 
 ## **Features**  
 * Showcase of personal projects and skills  
@@ -36,7 +36,5 @@ https://saifalim.pages.dev
 4. Open your browser and navigate to `http://localhost:3000`.
 
 ## **Future Enhancements**  
-- Project Details Page 
-- Light Mode / Dark Mode
-- Mobile functionality
+- Project Details Pages
 - Resume download option
