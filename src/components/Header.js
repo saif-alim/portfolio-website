@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { ReactComponent as MenuIcon } from "../assets/menu-btn.svg";
 import { Logo } from "./Logo";
 import scrollToSection from "../utils/Utils";
 import { ToggleTheme } from "../utils/ToggleTheme";
