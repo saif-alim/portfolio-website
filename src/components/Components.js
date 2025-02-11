@@ -19,6 +19,17 @@ export const Section = styled.div`
   display: flex;
   box-sizing: border-box;
   padding: 0 3%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const HomeDisplay = styled.div`
+  height: 100vh;
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -27,6 +38,9 @@ export const Heading = styled.h1`
   letter-spacing: 2px;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -35,6 +49,10 @@ export const Subtitle = styled.p`
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const SectionTitle = styled.p`
@@ -44,4 +62,7 @@ export const SectionTitle = styled.p`
   letter-spacing: 4px;
   height: 50px;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;

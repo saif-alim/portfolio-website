@@ -27,6 +27,10 @@ export const LogoText = styled.h1`
   position: relative;
   z-index: 1;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const LogoHighlight = styled.div`

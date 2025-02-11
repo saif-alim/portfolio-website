@@ -54,6 +54,11 @@ const GridContainer = styled.div`
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 const GridItemContainer = styled.div`
