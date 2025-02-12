@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { Section, SectionTitle } from "../components/Components";
+import {
+  PrimaryTextStyle,
+  Section,
+  SectionTitle,
+} from "../components/Components";
 
 const Projects = () => {
   return (
@@ -26,7 +30,7 @@ const Projects = () => {
         <GridItem
           projectTitle={"Alim's Portfolio"}
           projectHeadline={"Portfolio Website"}
-          subtitle={"React"}
+          subtitle={"React, JavaScript"}
           imgSrc={"/assets/projects/portfolio-website-mockup.jpeg"}
         >
           Project 3
@@ -75,14 +79,11 @@ const GridItemContainer = styled.div`
   font-size: 1.5rem;
 `;
 
-const GridItemTitle = styled.p`
+const GridItemTitle = styled(PrimaryTextStyle)`
   margin: 0;
-  letter-spacing: 2px;
-  font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 1.5rem;
-  font-family: "Quicksand", sans-serif;
 `;
 
 const GridItemSubtitle = styled.p`

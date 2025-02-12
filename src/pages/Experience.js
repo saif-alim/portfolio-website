@@ -3,7 +3,7 @@ import {
   Section,
   SectionTitle,
   Subtitle,
-  Heading,
+  PrimaryTextStyle,
 } from "./../components/Components";
 
 const Experience = () => {
@@ -94,6 +94,7 @@ export const ResumeContent = styled.div`
     border-color: var(--color-accent);
   }
   justify-content: space-between;
+  align-items: center;
   @media (max-width: 768px) {
     padding: 2.5%;
   }
@@ -103,12 +104,14 @@ export const Spacer = styled.div`
   height: 30px;
 `;
 
-const CompanyName = styled(Heading)`
+const CompanyName = styled(PrimaryTextStyle)`
   margin-top: 0;
+  margin-bottom: 5px;
   font-size: 1rem;
   text-transform: uppercase;
   @media (max-width: 768px) {
     font-size: 0.8rem;
+    margin-bottom: 0;
   }
 `;
 
