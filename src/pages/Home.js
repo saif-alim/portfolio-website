@@ -1,19 +1,19 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import styled from "styled-components";
-import { Heading, Subtitle, Section } from "../components/Components";
+import { Title, Subtitle, Section } from "../components/Components";
 
 const Home = () => {
   return (
     <HomeSection>
-      <Title>
-        <Heading>
+      <TitleContainer>
+        <Title>
           SAIF UL ALIM <br /> AHMED
-        </Heading>
+        </Title>
         <Subtitle>
           Software Engineer, <br /> App Developer.
         </Subtitle>
-      </Title>
+      </TitleContainer>
       <div id="image-container">
         <HeroImage src="/assets/alim-the-thinker.png" />
       </div>
@@ -26,11 +26,14 @@ export default Home;
 export const HomeSection = styled(Section)`
   padding: 125px 8vw;
   height: auto;
+  padding-top: 110px;
+  align-items: center;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    min-height: auto;
     padding: 10px 20px;
+    padding-top: 90px;
+    align-items: center;
   }
 `;
 
@@ -47,9 +50,11 @@ const HeroImage = styled.img`
   }
 `;
 
-const Title = styled.div`
+const TitleContainer = styled.div`
   flex: 1;
   @media (max-width: 768px) {
     flex: 0;
+    width: 100%;
+    padding-bottom: 20px;
   }
 `;

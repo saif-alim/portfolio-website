@@ -4,27 +4,48 @@ import styled from "styled-components";
 import { Logo } from "./Logo";
 import scrollToSection from "../utils/Utils";
 import { ToggleTheme } from "../utils/ToggleTheme";
+import { useMediaQuery } from "react-responsive";
+import { AnimatePresence, motion } from "framer-motion";
 
 const HeaderSection = () => {
-  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
+  // const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [top, setTop] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
+  const systemIsLight = useMediaQuery({
+    query: "(prefers-color-scheme: light)",
+  });
 
   useEffect(() => {
+    setIsLightMode(systemIsLight);
+  }, [systemIsLight]);
+
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    isLightMode
+      ? htmlElement.classList.add("light")
+      : htmlElement.classList.remove("light");
+  }, [isLightMode]);
+
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        setTop(0); // show navbar
-      } else {
-        setTop(-155); // hide navbar
+      const currentScrollY = window.pageYOffset;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      if (scrollDifference > 50) {
+        if (lastScrollY < currentScrollY) {
+          setTop(-150); // hide
+        } else {
+          setTop(0); // show
+        }
+        lastScrollY = currentScrollY;
       }
-      setPrevScrollpos(currentScrollPos);
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollpos]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Header style={{ top: `${top}px`, transition: "top 0.5s" }}>
@@ -40,51 +61,70 @@ const HeaderSection = () => {
           // projects
         </NavItem>
         <NavItem onClick={() => scrollToSection("contact")}>// contact</NavItem>
-        <ToggleTheme />
+        <ToggleTheme
+          isLightMode={isLightMode}
+          toggleTheme={() => setIsLightMode(!isLightMode)}
+        />
       </Nav>
-
-      <MobileMenuButton onClick={() => setIsNavOpen(!isNavOpen)}>
+      <AnimatePresence>
+        {isNavOpen && (
+          <MobileNav
+            initial={{ x: "100%" }} // Start off-screen
+            animate={{ x: 0 }} // Slide in
+            exit={{ x: "100%" }} // Slide out when unmounting
+            transition={{ type: "tween", duration: 0.3 }} // Smooth transition
+          >
+            <MobileNavItem
+              onClick={() => {
+                scrollToSection("home");
+                setIsNavOpen(false);
+              }}
+            >
+              // home
+            </MobileNavItem>
+            <MobileNavItem
+              onClick={() => {
+                scrollToSection("experience");
+                setIsNavOpen(false);
+              }}
+            >
+              // experience
+            </MobileNavItem>
+            <MobileNavItem
+              onClick={() => {
+                scrollToSection("projects");
+                setIsNavOpen(false);
+              }}
+            >
+              // projects
+            </MobileNavItem>
+            <MobileNavItem
+              onClick={() => {
+                scrollToSection("contact");
+                setIsNavOpen(false);
+              }}
+            >
+              // contact
+            </MobileNavItem>
+            <ToggleTheme
+              isLightMode={isLightMode}
+              toggleTheme={() => setIsLightMode(!isLightMode)}
+            />
+          </MobileNav>
+        )}
+      </AnimatePresence>
+      <MobileMenuButton
+        isNavOpen={isNavOpen}
+        animate={{ rotate: isNavOpen ? 0 : 72 }}
+        transition={{
+          type: "spring",
+          stiffness: 60,
+          damping: 10,
+        }}
+        onClick={() => setIsNavOpen(!isNavOpen)}
+      >
         //
       </MobileMenuButton>
-
-      {isNavOpen && (
-        <MobileNav>
-          <CloseButton onClick={() => setIsNavOpen(false)}>//</CloseButton>
-          <MobileNavItem
-            onClick={() => {
-              scrollToSection("home");
-              setIsNavOpen(false);
-            }}
-          >
-            // home
-          </MobileNavItem>
-          <MobileNavItem
-            onClick={() => {
-              scrollToSection("experience");
-              setIsNavOpen(false);
-            }}
-          >
-            // experience
-          </MobileNavItem>
-          <MobileNavItem
-            onClick={() => {
-              scrollToSection("projects");
-              setIsNavOpen(false);
-            }}
-          >
-            // projects
-          </MobileNavItem>
-          <MobileNavItem
-            onClick={() => {
-              scrollToSection("contact");
-              setIsNavOpen(false);
-            }}
-          >
-            // contact
-          </MobileNavItem>
-          <ToggleTheme />
-        </MobileNav>
-      )}
     </Header>
   );
 };
@@ -100,10 +140,9 @@ const Header = styled.header`
   align-items: center;
   position: fixed;
   padding: 20px 40px;
-  z-index: 1000;
 
   @media (max-width: 768px) {
-    padding: 15px 20px;
+    padding: 10px 15px;
   }
 `;
 
@@ -113,7 +152,7 @@ const Nav = styled.nav`
   align-items: center;
 
   @media (max-width: 768px) {
-    display: none; /* Hide desktop nav on mobile */
+    display: none;
   }
 `;
 
@@ -130,7 +169,7 @@ const NavItem = styled.span`
   }
 `;
 
-const MobileMenuButton = styled.button`
+const MobileMenuButton = styled(motion.button)`
   display: none;
   background: none;
   border: none;
@@ -138,24 +177,17 @@ const MobileMenuButton = styled.button`
   color: var(--color-foreground);
   font-size: 1.6rem;
   font-family: "Space Mono", serif;
-  transform: rotate(72deg);
-
-  svg {
-    width: 35px;
-    height: 35px;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  &:hover svg {
-    transform: scale(1.1);
-  }
+  position: ${({ isNavOpen }) => (isNavOpen ? "fixed" : "relative")};
+  top: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
+  right: ${({ isNavOpen }) => (isNavOpen ? "15px" : "auto")};
+  z-index: 1002;
 
   @media (max-width: 768px) {
-    display: block; /* Show menu button on mobile */
+    display: block;
   }
 `;
 
-const MobileNav = styled.div`
+const MobileNav = styled(motion.div)`
   position: fixed;
   top: 0;
   right: 0;
@@ -167,20 +199,8 @@ const MobileNav = styled.div`
   flex-direction: column;
   gap: 10px;
   padding: 20px;
+  padding-top: 70px;
   z-index: 1001;
-  transition: transform 0.3s ease-in-out;
-`;
-
-const CloseButton = styled.button`
-  align-self: flex-end;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--color-foreground);
-  font-size: 1.6rem;
-  font-family: "Space Mono", serif;
-  // transform: rotate(72deg);
 `;
 
 const MobileNavItem = styled.span`

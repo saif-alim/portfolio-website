@@ -16,7 +16,7 @@ const App = () => {
         {/* dummy div to scroll to */}
         <div id="home" />
         {/* dummy div for spacing */}
-        <div id="dummy-header" style={{ height: "110px" }} />
+        {/* <div id="dummy-header" style={{ height: "110px" }} /> */}
         <Home />
       </HomeDisplay>
       <div id="experience">

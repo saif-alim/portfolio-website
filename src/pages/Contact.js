@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Section, SectionTitle } from "../components/Components";
+import {
+  PrimaryTextStyle,
+  Section,
+  SectionTitle,
+} from "../components/Components";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -138,15 +142,11 @@ const CloseButton = styled.button`
   letter-spacing: 4px;
 `;
 
-const ModalTitle = styled.p`
+const ModalTitle = styled(PrimaryTextStyle)`
   margin: 0;
   padding-bottom: 5px;
-  letter-spacing: 2px;
-  font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
-  font-weight: 500;
   font-size: 1.5rem;
-  font-family: "Quicksand", sans-serif;
 `;
 
 const ModalMessage = styled.p`
@@ -234,6 +234,9 @@ const Input = styled.input`
   &:focus {
     border-color: var(--color-accent);
   }
+  @media (max-width: 768px) {
+    height: 30px;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -250,6 +253,9 @@ const TextArea = styled.textarea`
   transition: border-color 0.2s ease-in-out;
   &:focus {
     border-color: var(--color-accent);
+  }
+  @media (max-width: 768px) {
+    height: 150px;
   }
 `;
 

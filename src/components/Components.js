@@ -28,38 +28,40 @@ export const Section = styled.div`
 export const HomeDisplay = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
-    height: auto;
   }
 `;
 
-export const Heading = styled.h1`
+export const PrimaryTextStyle = styled.p`
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
+`;
+
+export const Title = styled(PrimaryTextStyle)`
   font-size: 5rem;
   margin-bottom: 5px;
-  letter-spacing: 2px;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 600;
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 `;
 
-export const Subtitle = styled.p`
-  margin-top: 0px;
-  font-size: 1.5rem;
+export const SecondaryTextStyle = styled.p`
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
+`;
+
+export const Subtitle = styled(SecondaryTextStyle)`
+  margin-top: 0px;
+  font-size: 1.5rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
   }
 `;
 
-export const SectionTitle = styled.p`
+export const SectionTitle = styled(SecondaryTextStyle)`
   font-size: 2rem;
-  font-weight: 300;
-  font-family: "Space Mono", serif;
-  letter-spacing: 4px;
   height: 50px;
   text-transform: uppercase;
   @media (max-width: 768px) {
