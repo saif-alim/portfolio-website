@@ -76,7 +76,7 @@ const ContactForm = () => {
 
         <Label>
           Message
-          <TextArea {...register("message")} />
+          <TextArea type="message" {...register("message")} />
           {errors.message && (
             <ErrorMessage>{errors.message.message}</ErrorMessage>
           )}
