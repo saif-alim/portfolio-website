@@ -4,7 +4,7 @@ import {
   SectionTitle,
   Subtitle,
   PrimaryTextStyle,
-} from "./../components/Components";
+} from "../components/Components";
 
 const Experience = () => {
   return (
