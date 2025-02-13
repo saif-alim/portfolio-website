@@ -1,6 +1,7 @@
 # Ignore all files
 /*
 
+
 # Allow only specific directories
 !/public
 !/src
@@ -9,3 +10,5 @@
 node_modules
 build
 dist
+
+/src/index.js

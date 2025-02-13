@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { ReactComponent as InstagramIcon } from "../assets/instagram-icon.svg";
-import { ReactComponent as LinkedinIcon } from "../assets/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "../assets/github-icon.svg";
+import InstagramIcon from "../assets/instagram-icon.svg?react";
+import LinkedinIcon from "../assets/linkedin-icon.svg?react";
+import GithubIcon from "../assets/github-icon.svg?react";
 import { Logo } from "./Logo";
 import styled from "styled-components";
 import scrollToSection from "../utils/Utils";
