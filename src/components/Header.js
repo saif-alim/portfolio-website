@@ -52,79 +52,87 @@ const HeaderSection = () => {
       <LogoContainer onClick={() => scrollToSection("home")}>
         <Logo />
       </LogoContainer>
-      <Nav>
-        <NavItem onClick={() => scrollToSection("home")}>// home</NavItem>
-        <NavItem onClick={() => scrollToSection("experience")}>
-          // experience
-        </NavItem>
-        <NavItem onClick={() => scrollToSection("projects")}>
-          // projects
-        </NavItem>
-        <NavItem onClick={() => scrollToSection("contact")}>// contact</NavItem>
-        <ToggleTheme
-          isLightMode={isLightMode}
-          toggleTheme={() => setIsLightMode(!isLightMode)}
-        />
-      </Nav>
-      <AnimatePresence>
-        {isNavOpen && (
-          <MobileNav
-            initial={{ x: "100%" }} // Start off-screen
-            animate={{ x: 0 }} // Slide in
-            exit={{ x: "100%" }} // Slide out when unmounting
-            transition={{ type: "tween", duration: 0.3 }} // Smooth transition
-          >
-            <MobileNavItem
-              onClick={() => {
-                scrollToSection("home");
-                setIsNavOpen(false);
-              }}
-            >
-              // home
-            </MobileNavItem>
-            <MobileNavItem
-              onClick={() => {
-                scrollToSection("experience");
-                setIsNavOpen(false);
-              }}
-            >
-              // experience
-            </MobileNavItem>
-            <MobileNavItem
-              onClick={() => {
-                scrollToSection("projects");
-                setIsNavOpen(false);
-              }}
-            >
-              // projects
-            </MobileNavItem>
-            <MobileNavItem
-              onClick={() => {
-                scrollToSection("contact");
-                setIsNavOpen(false);
-              }}
-            >
-              // contact
-            </MobileNavItem>
-            <ToggleTheme
-              isLightMode={isLightMode}
-              toggleTheme={() => setIsLightMode(!isLightMode)}
-            />
-          </MobileNav>
-        )}
-      </AnimatePresence>
-      <MobileMenuButton
-        isNavOpen={isNavOpen}
-        animate={{ rotate: isNavOpen ? 0 : 72 }}
-        transition={{
-          type: "spring",
-          stiffness: 60,
-          damping: 10,
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
         }}
-        onClick={() => setIsNavOpen(!isNavOpen)}
       >
-        //
-      </MobileMenuButton>
+        <Nav>
+          <NavItem onClick={() => scrollToSection("home")}>// home</NavItem>
+          <NavItem onClick={() => scrollToSection("experience")}>
+            // experience
+          </NavItem>
+          <NavItem onClick={() => scrollToSection("projects")}>
+            // projects
+          </NavItem>
+          <NavItem onClick={() => scrollToSection("contact")}>
+            // contact
+          </NavItem>
+        </Nav>
+        <AnimatePresence>
+          {isNavOpen && (
+            <MobileNav
+              initial={{ x: "100%" }} // Start off-screen
+              animate={{ x: 0 }} // Slide in
+              exit={{ x: "100%" }} // Slide out when unmounting
+              transition={{ type: "tween", duration: 0.3 }} // Smooth transition
+            >
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("home");
+                  setIsNavOpen(false);
+                }}
+              >
+                // home
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("experience");
+                  setIsNavOpen(false);
+                }}
+              >
+                // experience
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("projects");
+                  setIsNavOpen(false);
+                }}
+              >
+                // projects
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsNavOpen(false);
+                }}
+              >
+                // contact
+              </MobileNavItem>
+            </MobileNav>
+          )}
+        </AnimatePresence>
+        <ToggleThemeContainer>
+          <ToggleTheme
+            isLightMode={isLightMode}
+            toggleTheme={() => setIsLightMode(!isLightMode)}
+          />
+        </ToggleThemeContainer>
+        <MobileMenuButton
+          isNavOpen={isNavOpen}
+          animate={{ rotate: isNavOpen ? 0 : 72 }}
+          transition={{
+            type: "spring",
+            stiffness: 60,
+            damping: 10,
+          }}
+          onClick={() => setIsNavOpen(!isNavOpen)}
+        >
+          //
+        </MobileMenuButton>
+      </div>
     </Header>
   );
 };
@@ -218,4 +226,15 @@ const MobileNavItem = styled.span`
 
 const LogoContainer = styled.div`
   cursor: pointer;
+  padding-right: 10px;
+`;
+
+const ToggleThemeContainer = styled.div`
+  padding-left: 25px;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+    padding-right: 20px;
+    padding-top: 5px;
+  }
 `;
