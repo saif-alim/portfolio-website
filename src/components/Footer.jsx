@@ -51,7 +51,7 @@ const Footer = styled.footer`
   justify-content: space-between;
   max-width: 100vw;
   padding-top: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 40px;
 

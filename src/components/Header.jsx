@@ -148,10 +148,6 @@ const Header = styled.header`
   align-items: center;
   position: fixed;
   padding: 20px 40px;
-
-  @media (max-width: 768px) {
-    padding: 10px 15px;
-  }
 `;
 
 const Nav = styled.nav`
@@ -159,7 +155,7 @@ const Nav = styled.nav`
   gap: 50px;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: none;
   }
 `;
@@ -190,7 +186,7 @@ const MobileMenuButton = styled(motion.button)`
   right: ${({ isNavOpen }) => (isNavOpen ? "15px" : "auto")};
   z-index: 1002;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: block;
   }
 `;
@@ -232,7 +228,7 @@ const LogoContainer = styled.div`
 const ToggleThemeContainer = styled.div`
   padding-left: 25px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding-left: 0;
     padding-right: 20px;
     padding-top: 5px;

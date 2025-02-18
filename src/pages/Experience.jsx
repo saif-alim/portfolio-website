@@ -2,13 +2,13 @@ import styled from "styled-components";
 import {
   Section,
   SectionTitle,
-  Subtitle,
   PrimaryTextStyle,
+  SecondaryTextStyle,
 } from "../components/Components";
 
 const Experience = () => {
   return (
-    <Section>
+    <Section style={{ gap: "3%" }}>
       <Subsection>
         <SectionTitle>EXPERIENCE</SectionTitle>
         <SubsectionContent>
@@ -73,10 +73,9 @@ const SubsectionContent = styled.div`
 
 const Subsection = styled(Section)`
   display: flex;
+  padding: 0;
   flex-direction: column;
   max-width: 50vw;
-  padding: 2.5vw;
-  padding-left: 0;
   min-height: auto;
   @media (max-width: 768px) {
     max-width: 95vw;
@@ -88,7 +87,8 @@ export const ResumeContent = styled.div`
   flex-direction: row;
   padding: 5%;
   height: 50px;
-  border: var(--border-style) var(--color-foreground);
+  border: var(--border-style) var(--grey-dark-theme);
+  border-radius: 15px;
   transition: border-color 0.2s ease-in-out;
   &:hover {
     border-color: var(--color-accent);
@@ -105,18 +105,24 @@ export const Spacer = styled.div`
 `;
 
 const CompanyName = styled(PrimaryTextStyle)`
-  margin-top: 0;
-  margin-bottom: 5px;
+  margin: 0;
   font-size: 1rem;
   text-transform: uppercase;
+  @media (max-width: 992px) {
+    font-size: 0.9rem;
+  }
   @media (max-width: 768px) {
     font-size: 0.8rem;
-    margin-bottom: 0;
   }
 `;
 
-const JobTitle = styled(Subtitle)`
+const JobTitle = styled(SecondaryTextStyle)`
   font-size: 0.8rem;
+  color: var(--grey-dark-theme);
+  margin: 0;
+  @media (max-width: 992px) {
+    font-size: 0.7rem;
+  }
   @media (max-width: 768px) {
     font-size: 0.6rem;
   }
@@ -130,13 +136,14 @@ const DatesContainer = styled.div`
   font-family: "Space Mono", serif;
   text-transform: uppercase;
   text-align: right;
+  color: var(--grey-dark-theme);
 `;
 
 const ResumeSection = ({ title, jobTitle, startDate, endDate }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ResumeContent>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
           <CompanyName>{title}</CompanyName>
           <JobTitle>{jobTitle}</JobTitle>
         </div>

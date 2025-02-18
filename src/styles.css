@@ -4,6 +4,7 @@ html {
   --color-foreground: #0d0d0d;
   --color-accent: #d557ff;
   --border-style: 1.5px solid;
+  --grey-dark-theme: #a1a1a1;
 
   background: var(--color-background);
   color: var(--color-foreground);

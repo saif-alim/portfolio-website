@@ -37,32 +37,14 @@ export const PrimaryTextStyle = styled.p`
   font-weight: 600;
 `;
 
-export const Title = styled(PrimaryTextStyle)`
-  font-size: 5rem;
-  margin-bottom: 5px;
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
-
 export const SecondaryTextStyle = styled.p`
   font-weight: 300;
   font-family: "Space Mono", serif;
   letter-spacing: 4px;
 `;
 
-export const Subtitle = styled(SecondaryTextStyle)`
-  margin-top: 0px;
-  font-size: 1.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
 export const SectionTitle = styled(SecondaryTextStyle)`
   font-size: 2rem;
-  height: 50px;
   text-transform: uppercase;
   @media (max-width: 768px) {
     height: auto;

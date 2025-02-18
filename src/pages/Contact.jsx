@@ -167,10 +167,11 @@ const SubmitButton = styled.button`
   max-width: 200px;
   min-height: 40px;
   background: var(--color-background);
-  border: var(--border-style) var(--color-foreground);
+  border: var(--border-style) var(--grey-dark-theme);
+  border-radius: 10px;
   color: var(--color-foreground);
-  padding: 10px;
-  font-size: 1rem;
+  padding: 15px;
+  font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease-in-out;
   &:hover {
@@ -195,6 +196,7 @@ const FormContainer = styled.form`
   max-width: 1000px;
   align-items: center;
   padding: 20px;
+  padding-bottom: 40px;
   align-self: center;
   border-radius: 10px;
   display: flex;
@@ -207,6 +209,7 @@ const FormContainer = styled.form`
 
 const Label = styled.label`
   padding: 5px;
+  color: var(--grey-dark-theme);
   width: 100%;
   font-size: 0.9rem;
   display: flex;
@@ -225,7 +228,8 @@ const Input = styled.input`
   background: var(--color-background);
   height: 40px;
   max-width: 95%;
-  border: var(--border-style) var(--color-foreground);
+  border: var(--border-style) var(--grey-dark-theme);
+  border-radius: 15px;
   color: var(--color-foreground);
   padding: 10px;
   font-size: 1rem;
@@ -241,7 +245,8 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
   background: var(--color-background);
-  border: var(--border-style) var(--color-foreground);
+  border: var(--border-style) var(--grey-dark-theme);
+  border-radius: 15px;
   color: var(--color-foreground);
   font-family: "Space Mono", serif;
   padding: 10px;
