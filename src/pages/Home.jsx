@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import InstagramIcon from "../assets/instagram-icon.svg?react";
 import LinkedinIcon from "../assets/linkedin-icon.svg?react";
@@ -12,6 +12,8 @@ import {
 } from "../components/Components";
 
 const Home = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <HomeSection>
       <div id="image-container">
@@ -35,11 +37,27 @@ const Home = () => {
               <GithubIcon />
             </Icon>
           </a>
-          <a href="https://www.instagram.com/saifalim_/">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "2px",
+              alignItems: "center",
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <Icon>
               <LocationIcon />
             </Icon>
-          </a>
+            <div style={{ overflow: "hidden" }}>
+              <LocationText isHovered={isHovered}>
+                London,
+                <br />
+                United Kingdom
+              </LocationText>
+            </div>
+          </div>
         </Icons>
       </TitleContainer>
     </HomeSection>
@@ -101,6 +119,21 @@ const Subtitle = styled(SecondaryTextStyle)`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
+  }
+`;
+
+const LocationText = styled(SecondaryTextStyle)`
+  position: relative;
+  left: ${({ isHovered }) => (isHovered ? "0" : "-100%")};
+  transition: left 0.3s ease-in-out;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.1;
+  overflow: hidden;
+  letter-spacing: 2px;
+  color: var(--grey-dark-theme);
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 
