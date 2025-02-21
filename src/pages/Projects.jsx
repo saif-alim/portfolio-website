@@ -17,7 +17,7 @@ const Projects = () => {
           description={
             "A community based mobile app to help users find prayer rooms and ratings/details."
           }
-          imgSrc={"/assets/projects/hijra-mockup.png"}
+          imgSrc={"/assets/projects/hijra-mockup-16x9.png"}
         >
           Project 1
         </GridItem>
@@ -28,7 +28,7 @@ const Projects = () => {
           description={
             "A simple expense tracker app to help users track daily expenses and manage budgets."
           }
-          imgSrc={"/assets/projects/spendi-mockup.png"}
+          imgSrc={"/assets/projects/spendi-mockup-16x9.png"}
         >
           Project 2
         </GridItem>
@@ -39,7 +39,7 @@ const Projects = () => {
           description={
             "A personal portfolio website to showcase projects, skills and experience."
           }
-          imgSrc={"/assets/projects/portfolio-website-mockup.jpeg"}
+          imgSrc={"/assets/projects/portfolio-website-mockup-16x9.jpeg"}
         >
           Project 3
         </GridItem>
@@ -50,7 +50,7 @@ const Projects = () => {
           description={
             "A 3D underwater platformer game with ocean based theming and multiple levels."
           }
-          imgSrc={"/assets/projects/oceanody-gameplay-mockup.jpeg"}
+          imgSrc={"/assets/projects/oceanody-gameplay-mockup-16x9.jpeg"}
         >
           Project 4
         </GridItem>
