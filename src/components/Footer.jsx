@@ -72,9 +72,6 @@ const FooterMainItems = styled.div`
 `;
 
 const CreditsText = styled(SecondaryTextStyle)`
-  // background-image: var(--grey-gradient);
-  // color: transparent;
-  // background-clip: text;
   color: var(--grey-dark-theme);
   font-size: 0.9rem;
   text-align: center;

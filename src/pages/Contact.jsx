@@ -57,6 +57,10 @@ const ContactForm = () => {
     submit(data);
   };
 
+  const handleChildElementClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <ContactSection>
       <SectionTitle>Contact</SectionTitle>
@@ -88,8 +92,8 @@ const ContactForm = () => {
       </FormContainer>
 
       {isDialogOpen && (
-        <ModalOverlay>
-          <ModalContent>
+        <ModalOverlay onClick={() => setIsDialogOpen(false)}>
+          <ModalContent onClick={(e) => handleChildElementClick(e)}>
             <ModalTitle>Thank You!</ModalTitle>
             <ModalMessage>
               Your message has been sent successfully.
@@ -107,6 +111,7 @@ const ContactForm = () => {
 // Styled components
 const ModalOverlay = styled.div`
   position: fixed;
+  z-index: 1250;
   top: 0;
   left: 0;
   width: 100%;
@@ -115,26 +120,35 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(2px);
 `;
 
 const ModalContent = styled.div`
-  border: var(--border-style) var(--color-foreground);
-  background: var(--color-background);
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
   width: 300px;
   text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  background-image: var(--background-gradient);
+  border-radius: 15px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
+  @media (max-width: 768px) {
+    width: auto;
+    max-width: 95vw;
+  }
 `;
 
 const CloseButton = styled.button`
-  border: var(--border-style) var(--color-foreground);
-  background: var(--color-background);
-  color: var(--color-foreground);
   margin-top: 15px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 1rem;
-  transition: border-color 0.2s ease-in-out;
+  background: var(--background-gradient);
+  border: var(--border-style) var(--grey-dark-theme);
+  border-radius: 10px;
+  color: var(--color-foreground);
+  transition: border-color 0.3s ease-in-out;
   &:hover {
     border-color: var(--color-accent);
   }
@@ -154,7 +168,7 @@ const ModalMessage = styled.p`
   font-size: 1rem;
   font-weight: 300;
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 `;
 
 const ErrorMessage = styled.p`

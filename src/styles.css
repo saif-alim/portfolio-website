@@ -51,12 +51,5 @@ html.light {
 
   body {
     background: #fff;
-    /* background: linear-gradient(
-      to bottom,
-      rgb(255, 255, 255) 15%,
-      rgb(0, 0, 0) 60%,
-      rgb(255, 255, 255) 80%
-    );
-  } */
   }
 }

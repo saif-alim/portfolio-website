@@ -15,8 +15,8 @@ const Experience = () => {
         <ResumeSection
           title="Vypr Validation Ltd"
           jobTitle="Android Developer"
-          startDate="Jan 20XX"
-          endDate="Dec 20XX"
+          startDate="Jan 2024"
+          endDate="Present"
           description={[
             <>
               Developed and maintained the <Highlight>Android</Highlight>{" "}
@@ -39,8 +39,8 @@ const Experience = () => {
         <ResumeSection
           title="Cub Magazine"
           jobTitle="Head of Design"
-          startDate="Jan 20XX"
-          endDate="Dec 20XX"
+          startDate="Oct 2021"
+          endDate="Mar 2022"
           alignRight={true}
           description={[
             <>
