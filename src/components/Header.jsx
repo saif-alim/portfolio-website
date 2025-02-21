@@ -31,6 +31,7 @@ const HeaderSection = () => {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
+      if (isNavOpen) return;
       const currentScrollY = window.pageYOffset;
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
       if (scrollDifference > 50) {
@@ -45,7 +46,7 @@ const HeaderSection = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isNavOpen]);
 
   return (
     <Header style={{ top: `${top}px`, transition: "top 0.5s" }}>
@@ -155,6 +156,7 @@ const Header = styled.header`
 
   @media (max-width: 768px) {
     padding: 10px 10px;
+    height: 60px;
   }
 `;
 
@@ -191,11 +193,15 @@ const MobileMenuButton = styled(motion.button)`
   font-family: "Space Mono", serif;
   position: ${({ isNavOpen }) => (isNavOpen ? "fixed" : "relative")};
   top: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
-  right: ${({ isNavOpen }) => (isNavOpen ? "15px" : "auto")};
+  right: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
   z-index: 1002;
 
   @media (max-width: 992px) {
     display: block;
+  }
+  @media (min-width: 768px) {
+    top: ${({ isNavOpen }) => (isNavOpen ? "25px" : "auto")};
+    right: ${({ isNavOpen }) => (isNavOpen ? "40px" : "auto")};
   }
 `;
 
