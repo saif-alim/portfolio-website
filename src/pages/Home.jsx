@@ -116,11 +116,7 @@ const Title = styled(PrimaryTextStyle)`
 `;
 
 const Subtitle = styled(SecondaryTextStyle)`
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(124, 124, 124),
-    rgb(105, 95, 103)
-  );
+  background-image: var(--grey-gradient);
   color: transparent;
   background-clip: text;
   margin: 0;

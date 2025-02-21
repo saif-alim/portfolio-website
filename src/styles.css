@@ -10,6 +10,11 @@ html {
     rgb(13, 13, 13) 0%,
     rgb(30, 20, 30) 150%
   );
+  --grey-gradient: linear-gradient(
+    to bottom right,
+    rgb(152, 152, 152),
+    rgb(86, 78, 85)
+  );
 
   background: var(--color-background);
   color: var(--color-foreground);
