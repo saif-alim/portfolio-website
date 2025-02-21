@@ -166,10 +166,11 @@ const ErrorMessage = styled.p`
 const SubmitButton = styled.button`
   max-width: 200px;
   min-height: 40px;
-  background: var(--color-background);
+  background: var(--background-gradient);
   border: var(--border-style) var(--grey-dark-theme);
   border-radius: 10px;
   color: var(--color-foreground);
+  transition: color 0.3s ease-in-out;
   padding: 15px;
   font-size: 0.9rem;
   outline: none;
@@ -188,10 +189,11 @@ const ContactSection = styled(Section)`
   min-height: auto;
   display: flex;
   flex-direction: column;
-  padding: 0% 3%;
 `;
 
 const FormContainer = styled.form`
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 1000px;
   align-items: center;
@@ -227,7 +229,6 @@ const Label = styled.label`
 const Input = styled.input`
   background: var(--color-background);
   height: 40px;
-  max-width: 95%;
   border: var(--border-style) var(--grey-dark-theme);
   border-radius: 15px;
   color: var(--color-foreground);
@@ -254,7 +255,6 @@ const TextArea = styled.textarea`
   height: 300px;
   resize: none;
   outline: none;
-  max-width: 95%;
   transition: border-color 0.2s ease-in-out;
   &:focus {
     border-color: var(--color-accent);

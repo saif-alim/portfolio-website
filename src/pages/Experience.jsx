@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import {
   Section,
@@ -8,154 +9,207 @@ import {
 
 const Experience = () => {
   return (
-    <Section style={{ gap: "3%" }}>
-      <Subsection>
-        <SectionTitle>EXPERIENCE</SectionTitle>
-        <SubsectionContent>
-          <ResumeSection
-            title="Vypr Validation Ltd"
-            jobTitle="Android Developer"
-            startDate="Jul 2024"
-            endDate="Present"
-          />
-          <ResumeSection
-            title="IEUK by Bright Network"
-            jobTitle="Virtual Internship"
-            startDate="Jun 2023"
-          />
-          <ResumeSection
-            title="Ryman's Stationery"
-            jobTitle="Sales Assistant"
-            startDate="Nov 2023"
-            endDate="Apr 2024"
-          />
-          <ResumeSection
-            title="Cub Magazine"
-            jobTitle="Head of Design"
-            startDate="Oct 2021"
-            endDate="Mar 2022"
-          />
-        </SubsectionContent>
-      </Subsection>
-      <Subsection>
-        <SectionTitle>EDUCATION</SectionTitle>
+    <Section style={{ gap: "3%", flexDirection: "column" }}>
+      <SectionTitle>EXPERIENCE</SectionTitle>
+      <ExperienceWrapper>
         <ResumeSection
-          title="BSc Computer Science"
-          jobTitle="Queen Mary University of London"
-          startDate="Jun 2024"
+          title="Vypr Validation Ltd"
+          jobTitle="Android Developer"
+          startDate="Jan 20XX"
+          endDate="Dec 20XX"
+          description={[
+            <>
+              Developed and maintained the <Highlight>Android</Highlight>{" "}
+              application.
+            </>,
+            <>
+              Assisted in maintaining the <Highlight>iOS</Highlight>{" "}
+              application.
+            </>,
+            <>
+              Contributed to the development of a{" "}
+              <Highlight>TypeScript</Highlight> based web application.
+            </>,
+            <>
+              Assisted in maintaining and debugging the company's{" "}
+              <Highlight>Ruby on Rails</Highlight> application.
+            </>,
+          ]}
         />
         <ResumeSection
-          title="Android App Development Masterclass using Kotlin"
-          jobTitle="Udemy Course"
-          startDate="Aug 2024"
+          title="Cub Magazine"
+          jobTitle="Head of Design"
+          startDate="Jan 20XX"
+          endDate="Dec 20XX"
+          alignRight={true}
+          description={[
+            <>
+              Spearheaded design process and guided team to align with required
+              specifications, resulting in a cohesive final design.
+            </>,
+            <>
+              Managed and inspired team, pushing quality of design work and
+              helping drive impact through teams.
+            </>,
+            <>
+              Engaged with the team to brainstorm and create a visually striking
+              end result.
+            </>,
+          ]}
+        />
+      </ExperienceWrapper>
+      <div style={{ height: "150px" }} />
+      <SectionTitle>EDUCATION</SectionTitle>
+      <ExperienceWrapper>
+        <ResumeSection
+          title="Queen Mary University of London"
+          jobTitle="BSc Computer Science"
+          startDate="May 2024"
+          description={[
+            <>
+              Developed and maintained the <Highlight>Android</Highlight>{" "}
+              application using <Highlight>Kotlin</Highlight> and{" "}
+              <Highlight>Java</Highlight>.
+            </>,
+            <>
+              Assisted in maintaining the <Highlight>iOS</Highlight>{" "}
+              application.
+            </>,
+            <>
+              Contributed to the development of a{" "}
+              <Highlight>TypeScript</Highlight> based web application.
+            </>,
+            <>
+              Assisted in maintaining and debugging the company's{" "}
+              <Highlight>Ruby on Rails</Highlight> application.
+            </>,
+          ]}
         />
         <ResumeSection
-          title="A-Level Mathematics, Physics, Art and Design"
+          title="A-Levels"
           jobTitle="The Judd School"
           startDate="May 2020"
+          alignRight={true}
+          description={[
+            <>A - Mathematics</>,
+            <>A - Economics</>,
+            <>A - Art and Design</>,
+          ]}
         />
-        {/* <ResumeSection
-          title="IGCSE Mathematics, Physics, Chemistry, Biology, English, French"
-          jobTitle="Sadhbhavana World School"
-          startDate="Jul 2017"
-        /> */}
-      </Subsection>
+      </ExperienceWrapper>
+      <div style={{ height: "150px" }} />
     </Section>
   );
 };
 
 export default Experience;
 
-const SubsectionContent = styled.div`
+const ExperienceWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 30px;
 `;
 
-const Subsection = styled(Section)`
+const Highlight = styled.span`
+  font-weight: 500;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(189, 40, 199),
+    rgb(216, 89, 255)
+  );
+  color: transparent;
+  background-clip: text;
+`;
+
+const ResumeSection = ({
+  title,
+  jobTitle,
+  startDate,
+  endDate,
+  description, // Can be array of strings for bullets or JSX elements for inline text
+  isBulleted = false, // Toggle for bullet points
+  alignRight,
+}) => {
+  return (
+    <ResumeContent
+      style={{ alignSelf: alignRight ? "flex-end" : "flex-start" }}
+    >
+      <ResumeSectionHeader>
+        <div>
+          <CompanyName>{title}</CompanyName>
+          <JobTitle>{jobTitle}</JobTitle>
+        </div>
+        <DatesContainer>
+          {startDate}
+          <br />
+          {endDate}
+        </DatesContainer>
+      </ResumeSectionHeader>
+      <ResumePoints>
+        {description.map((point, index) => (
+          <li key={index}>{point}</li>
+        ))}
+      </ResumePoints>
+    </ResumeContent>
+  );
+};
+
+const ResumeContent = styled.div`
   display: flex;
-  padding: 0;
   flex-direction: column;
-  max-width: 50vw;
-  min-height: auto;
+  padding: 20px;
+  width: 60vw;
+  background-image: var(--background-gradient);
+  border-radius: 15px;
+  color: white;
+  &:hover {
+    transform: translateY(-3px);
+    transition: transform ease-in-out 0.2s;
+  }
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
   @media (max-width: 768px) {
+    width: auto;
     max-width: 95vw;
   }
 `;
 
-export const ResumeContent = styled.div`
+const ResumeSectionHeader = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 5%;
-  height: 50px;
-  border: var(--border-style) var(--grey-dark-theme);
-  border-radius: 15px;
-  transition: border-color 0.2s ease-in-out;
-  &:hover {
-    border-color: var(--color-accent);
-  }
   justify-content: space-between;
-  align-items: center;
-  @media (max-width: 768px) {
-    padding: 2.5%;
-  }
-`;
-
-export const Spacer = styled.div`
-  height: 30px;
+  margin-bottom: 10px;
 `;
 
 const CompanyName = styled(PrimaryTextStyle)`
+  color: var(--color-foreground);
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  @media (max-width: 992px) {
-    font-size: 0.9rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
+  line-height: 1;
 `;
 
 const JobTitle = styled(SecondaryTextStyle)`
-  font-size: 0.8rem;
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: 5px;
   color: var(--grey-dark-theme);
-  margin: 0;
-  @media (max-width: 992px) {
-    font-size: 0.7rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 0.6rem;
-  }
 `;
 
 const DatesContainer = styled.div`
-  font-size: 0.7rem;
-  border-radius: 5px;
-  padding: 10px;
-  font-weight: 600;
-  font-family: "Space Mono", serif;
-  text-transform: uppercase;
-  text-align: right;
+  font-size: 0.8rem;
   color: var(--grey-dark-theme);
+  font-family: "Space Mono", monospace;
+  text-align: right;
 `;
 
-const ResumeSection = ({ title, jobTitle, startDate, endDate }) => {
-  return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <ResumeContent>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-          <CompanyName>{title}</CompanyName>
-          <JobTitle>{jobTitle}</JobTitle>
-        </div>
-        <div>
-          <DatesContainer>
-            {startDate}
-            <br />
-            {endDate}
-          </DatesContainer>
-        </div>
-      </ResumeContent>
-      <Spacer />
-    </div>
-  );
-};
+const ResumePoints = styled.ul`
+  margin: 0;
+  padding: 10px 50px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.9rem;
+  color: var(--grey-dark-theme);
+  line-height: 2;
+  @media (max-width: 768px) {
+    padding: 10px 30px;
+  }
+`;

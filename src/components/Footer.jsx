@@ -57,6 +57,7 @@ const Footer = styled.footer`
 
   @media (max-width: 768px) {
     padding-bottom: 40px;
+    justify-content: center;
   }
 `;
 
@@ -74,11 +75,11 @@ const Icons = styled.div`
 
 const Icon = styled.div`
   box-sizing: border-box;
-  fill: var(--color-foreground);
 
   svg {
-    transition: fill 0.1s ease-in-out;
+    fill: var(--color-foreground);
     transition: transform 0.2s ease-in-out;
+    transition: fill 0.3s ease-in-out;
   }
 
   &:hover svg {

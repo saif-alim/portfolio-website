@@ -35,9 +35,9 @@ const HeaderSection = () => {
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
       if (scrollDifference > 50) {
         if (lastScrollY < currentScrollY) {
-          setTop(-150); // hide
+          setTop(-155); // hide
         } else {
-          setTop(0); // show
+          setTop(-2); // show
         }
         lastScrollY = currentScrollY;
       }
@@ -142,12 +142,20 @@ export default HeaderSection;
 const Header = styled.header`
   display: flex;
   box-sizing: border-box;
+  z-index: 2000;
   width: 100%;
-  background: var(--color-background);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px); // Safari support
   justify-content: space-between;
   align-items: center;
   position: fixed;
   padding: 20px 40px;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 0.1px solid var(--grey-dark-theme);
+
+  @media (max-width: 768px) {
+    padding: 10px 10px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -196,8 +204,8 @@ const MobileNav = styled(motion.div)`
   top: 0;
   right: 0;
   width: 200px;
-  height: 100%;
-  background: var(--color-background);
+  height: 120vh;
+  background: var(--background-gradient);
   box-shadow: -1px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;

@@ -1,0 +1,37 @@
+/* Define light theme as default */
+html {
+  --color-background: white;
+  --color-foreground: #0d0d0d;
+  --color-accent: #d557ff;
+  --border-style: 1.5px solid;
+
+  background: var(--color-background);
+  color: var(--color-foreground);
+  border: var(--border-style) var(--color-foreground);
+  transition: color 0.5s ease-in-out;
+}
+
+/* Override for dark theme */
+@media (prefers-color-scheme: dark) {
+  html {
+    --color-background: #0d0d0d;
+    --color-foreground: white;
+    --color-accent: #9a19e0;
+    --border-style: 1px solid;
+  }
+}
+
+/* Optional: Add a class-based theme toggle */
+html.dark {
+  --color-background: #0d0d0d;
+  --color-foreground: white;
+  --color-accent: #9a19e0;
+  --border-style: 1px solid;
+}
+
+html.light {
+  --color-background: white;
+  --color-foreground: #0d0d0d;
+  --color-accent: #d557ff;
+  --border-style: 1.5px solid;
+}

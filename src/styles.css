@@ -3,35 +3,55 @@ html {
   --color-background: white;
   --color-foreground: #0d0d0d;
   --color-accent: #d557ff;
-  --border-style: 1.5px solid;
+  --border-style: 0.1px solid;
   --grey-dark-theme: #a1a1a1;
+  --background-gradient: linear-gradient(
+    to bottom right,
+    rgb(13, 13, 13) 0%,
+    rgb(30, 20, 30) 150%
+  );
 
   background: var(--color-background);
   color: var(--color-foreground);
   transition: color 0.5s ease-in-out;
 }
 
+body {
+  background: linear-gradient(
+    to bottom,
+    rgb(13, 13, 13) 15%,
+    rgb(28, 17, 31) 60%,
+    rgb(13, 13, 13) 80%
+  );
+}
+
 /* Override for dark theme */
 @media (prefers-color-scheme: dark) {
   html {
-    --color-background: #0d0d0d;
+    --color-background: rgba(13, 13, 13);
     --color-foreground: white;
     --color-accent: #9a19e0;
-    --border-style: 1px solid;
   }
-}
-
-/* Optional: Add a class-based theme toggle */
-html.dark {
-  --color-background: #0d0d0d;
-  --color-foreground: white;
-  --color-accent: #9a19e0;
-  --border-style: 1px solid;
 }
 
 html.light {
   --color-background: white;
   --color-foreground: #0d0d0d;
   --color-accent: #d557ff;
-  --border-style: 1.5px solid;
+  --background-gradient: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255) 0%,
+    rgb(240, 234, 243) 200%
+  );
+
+  body {
+    background: #fff;
+    /* background: linear-gradient(
+      to bottom,
+      rgb(255, 255, 255) 15%,
+      rgb(0, 0, 0) 60%,
+      rgb(255, 255, 255) 80%
+    );
+  } */
+  }
 }

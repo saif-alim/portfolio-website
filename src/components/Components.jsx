@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   height: auto;
   min-height: 100vh;
   display: flex;
@@ -15,10 +15,12 @@ export const Container = styled.div`
 
 export const Section = styled.div`
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  justify-content: center;
   display: flex;
   box-sizing: border-box;
-  padding: 0 3%;
+  padding: 0 9%;
+  overflow-x: hidden;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -47,6 +49,8 @@ export const SectionTitle = styled(SecondaryTextStyle)`
   font-size: 2rem;
   text-transform: uppercase;
   @media (max-width: 768px) {
+    font-size: 1.5rem;
     height: auto;
+    margin-bottom: 5%;
   }
 `;

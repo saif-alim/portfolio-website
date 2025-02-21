@@ -8,4 +8,7 @@ export default defineConfig({
     react(),
     svgr(),
   ],
+  server: {
+    allowedHosts: ['saifalim.loca.lt'],
+  }
 })

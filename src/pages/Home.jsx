@@ -44,10 +44,11 @@ const Home = () => {
               gap: "2px",
               alignItems: "center",
             }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
           >
-            <Icon>
+            <Icon
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               <LocationIcon />
             </Icon>
             <div style={{ overflow: "hidden" }}>
@@ -106,17 +107,28 @@ const Title = styled(PrimaryTextStyle)`
   margin: 0;
   line-height: 1;
   letter-spacing: 10px;
+  @media (max-width: 992px) {
+    font-size: 3rem;
+  }
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
 const Subtitle = styled(SecondaryTextStyle)`
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(124, 124, 124),
+    rgb(105, 95, 103)
+  );
+  color: transparent;
+  background-clip: text;
   margin: 0;
   font-size: 2.2rem;
   line-height: 1.1;
-  color: var(--grey-dark-theme);
-
+  @media (max-width: 992px) {
+    font-size: 1.8rem;
+  }
   @media (max-width: 768px) {
     font-size: 1.2rem;
   }
@@ -150,12 +162,12 @@ const Icons = styled.div`
 
 const Icon = styled.div`
   box-sizing: border-box;
-  fill: var(--color-foreground);
 
   svg {
-    transition: fill 0.1s ease-in-out;
+    fill: var(--color-foreground);
     width: 40px;
     transition: transform 0.2s ease-in-out;
+    transition: fill 0.3s ease-in-out;
     @media (max-width: 768px) {
       width: 30px;
     }
