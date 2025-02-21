@@ -31,13 +31,14 @@ const HeaderSection = () => {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
+      if (isNavOpen) return;
       const currentScrollY = window.pageYOffset;
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
       if (scrollDifference > 50) {
         if (lastScrollY < currentScrollY) {
-          setTop(-150); // hide
+          setTop(-155); // hide
         } else {
-          setTop(0); // show
+          setTop(-2); // show
         }
         lastScrollY = currentScrollY;
       }
@@ -45,7 +46,7 @@ const HeaderSection = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isNavOpen]);
 
   return (
     <Header style={{ top: `${top}px`, transition: "top 0.5s" }}>
@@ -142,15 +143,20 @@ export default HeaderSection;
 const Header = styled.header`
   display: flex;
   box-sizing: border-box;
+  z-index: 2000;
   width: 100%;
-  background: var(--color-background);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px); // Safari support
   justify-content: space-between;
   align-items: center;
   position: fixed;
   padding: 20px 40px;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 0.1px solid var(--grey-dark-theme);
 
   @media (max-width: 768px) {
-    padding: 10px 15px;
+    padding: 10px 10px;
+    height: 60px;
   }
 `;
 
@@ -159,7 +165,7 @@ const Nav = styled.nav`
   gap: 50px;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: none;
   }
 `;
@@ -187,11 +193,15 @@ const MobileMenuButton = styled(motion.button)`
   font-family: "Space Mono", serif;
   position: ${({ isNavOpen }) => (isNavOpen ? "fixed" : "relative")};
   top: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
-  right: ${({ isNavOpen }) => (isNavOpen ? "15px" : "auto")};
+  right: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
   z-index: 1002;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: block;
+  }
+  @media (min-width: 768px) {
+    top: ${({ isNavOpen }) => (isNavOpen ? "25px" : "auto")};
+    right: ${({ isNavOpen }) => (isNavOpen ? "40px" : "auto")};
   }
 `;
 
@@ -200,8 +210,8 @@ const MobileNav = styled(motion.div)`
   top: 0;
   right: 0;
   width: 200px;
-  height: 100%;
-  background: var(--color-background);
+  height: 120vh;
+  background: var(--background-gradient);
   box-shadow: -1px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -232,7 +242,7 @@ const LogoContainer = styled.div`
 const ToggleThemeContainer = styled.div`
   padding-left: 25px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding-left: 0;
     padding-right: 20px;
     padding-top: 5px;
