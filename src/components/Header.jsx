@@ -48,6 +48,15 @@ const HeaderSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isNavOpen]);
 
+  useEffect(() => {
+    const overlay = document.getElementById("screen-overlay");
+    if (isNavOpen) {
+      overlay.style.display = "block";
+    } else {
+      overlay.style.display = "none";
+    }
+  }, [isNavOpen]);
+
   return (
     <Header style={{ top: `${top}px`, transition: "top 0.5s" }}>
       <LogoContainer onClick={() => scrollToSection("home")}>
@@ -74,59 +83,49 @@ const HeaderSection = () => {
         </Nav>
         <AnimatePresence>
           {isNavOpen && (
-            <>
-              <MobileNavBackground
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setIsNavOpen(false)}
-              />
-
-              <MobileNav
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "tween", duration: 0.3 }}
+            <MobileNav
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+            >
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("home");
+                  setIsNavOpen(false);
+                }}
               >
-                <MobileNavItem
-                  onClick={() => {
-                    scrollToSection("home");
-                    setIsNavOpen(false);
-                  }}
-                >
-                  {" "}
-                  // home{" "}
-                </MobileNavItem>
-                <MobileNavItem
-                  onClick={() => {
-                    scrollToSection("experience");
-                    setIsNavOpen(false);
-                  }}
-                >
-                  {" "}
-                  // experience{" "}
-                </MobileNavItem>
-                <MobileNavItem
-                  onClick={() => {
-                    scrollToSection("projects");
-                    setIsNavOpen(false);
-                  }}
-                >
-                  {" "}
-                  // projects{" "}
-                </MobileNavItem>
-                <MobileNavItem
-                  onClick={() => {
-                    scrollToSection("contact");
-                    setIsNavOpen(false);
-                  }}
-                >
-                  {" "}
-                  // contact{" "}
-                </MobileNavItem>
-              </MobileNav>
-            </>
+                {" "}
+                // home{" "}
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("experience");
+                  setIsNavOpen(false);
+                }}
+              >
+                {" "}
+                // experience{" "}
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("projects");
+                  setIsNavOpen(false);
+                }}
+              >
+                {" "}
+                // projects{" "}
+              </MobileNavItem>
+              <MobileNavItem
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsNavOpen(false);
+                }}
+              >
+                {" "}
+                // contact{" "}
+              </MobileNavItem>
+            </MobileNav>
           )}
         </AnimatePresence>
 
@@ -158,10 +157,10 @@ export default HeaderSection;
 const Header = styled.header`
   display: flex;
   box-sizing: border-box;
-  z-index: 2000;
+  z-index: 20;
   width: 100%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(20px); // Safari support
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); // Safari support
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -209,7 +208,7 @@ const MobileMenuButton = styled(motion.button)`
   position: ${({ isNavOpen }) => (isNavOpen ? "fixed" : "relative")};
   top: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
   right: ${({ isNavOpen }) => (isNavOpen ? "10px" : "auto")};
-  z-index: 2002;
+  z-index: 22;
 
   @media (max-width: 992px) {
     display: block;
@@ -233,18 +232,7 @@ const MobileNav = styled(motion.div)`
   gap: 10px;
   padding: 20px;
   padding-top: 70px;
-  z-index: 2000;
-`;
-
-const MobileNavBackground = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(10px); /* The key property */
-  background: rgba(0, 0, 0, 0.2); /* Slight transparency */
-  z-index: 1998; /* Below the MobileNav but above the content */
+  z-index: 21;
 `;
 
 const MobileNavItem = styled.span`

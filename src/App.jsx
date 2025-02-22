@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import { Container, HomeDisplay } from "./components/Components";
 import HeaderSection from "./components/Header";
 import FooterSection from "./components/Footer";
+import { ScreenOverlay } from "./utils/Utils";
 
 const App = () => {
   return (
@@ -15,8 +16,6 @@ const App = () => {
       <HomeDisplay>
         {/* dummy div to scroll to */}
         <div id="home" />
-        {/* dummy div for spacing */}
-        {/* <div id="dummy-header" style={{ height: "110px" }} /> */}
         <Home />
       </HomeDisplay>
       <div id="experience">
@@ -37,6 +36,7 @@ const App = () => {
         <Contact />
         <FooterSection />
       </div>
+      <ScreenOverlay id="screen-overlay" />
     </Container>
   );
 };

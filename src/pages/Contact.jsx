@@ -111,7 +111,7 @@ const ContactForm = () => {
 // Styled components
 const ModalOverlay = styled.div`
   position: fixed;
-  z-index: 1250;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -120,7 +120,7 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 `;
 
 const ModalContent = styled.div`
