@@ -193,6 +193,9 @@ const JobTitle = styled(SecondaryTextStyle)`
   line-height: 1;
   margin-top: 5px;
   color: var(--grey-dark-theme);
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const DatesContainer = styled.div`
@@ -200,6 +203,7 @@ const DatesContainer = styled.div`
   color: var(--grey-dark-theme);
   font-family: "Space Mono", monospace;
   text-align: right;
+  min-width: 75px;
 `;
 
 const ResumePoints = styled.ul`
@@ -210,6 +214,6 @@ const ResumePoints = styled.ul`
   color: var(--grey-dark-theme);
   line-height: 2;
   @media (max-width: 768px) {
-    padding: 10px 30px;
+    padding: 10px;
   }
 `;
