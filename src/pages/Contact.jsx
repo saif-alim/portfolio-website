@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Section, SectionTitle } from "../components/Components";
 import FormSubmittedModal from "../utils/ModalDialog";
@@ -6,6 +6,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import useWeb3Forms from "@web3forms/react";
+import { AnimatePresence } from "framer-motion";
 
 // Define Zod validation schema
 const schema = z.object({
@@ -88,14 +89,16 @@ const ContactForm = () => {
         </SubmitButton>
       </FormContainer>
 
-      {isDialogOpen && (
-        <FormSubmittedModal
-          onClose={() => setIsDialogOpen(false)}
-          modalTitle="Thank You!"
-          modalMessage="Your message has been sent successfully."
-          maxWidth="300px"
-        />
-      )}
+      <AnimatePresence>
+        {isDialogOpen && (
+          <FormSubmittedModal
+            onClose={() => setIsDialogOpen(false)}
+            modalTitle="Thank You!"
+            modalMessage="Your message has been sent successfully."
+            maxWidth="300px"
+          />
+        )}
+      </AnimatePresence>
     </ContactSection>
   );
 };
@@ -128,7 +131,7 @@ const SubmitButton = styled.button`
     border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 `;
 
 const ContactSection = styled(Section)`
@@ -166,7 +169,7 @@ const Label = styled.label`
   font-size: 1rem;
   font-weight: 300;
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   @media (max-width: 768px) {
     font-size: 0.75rem;
   }

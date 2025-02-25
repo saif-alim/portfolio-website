@@ -140,7 +140,6 @@ const LocationText = styled(SecondaryTextStyle)`
   font-size: 1rem;
   line-height: 1.1;
   overflow: hidden;
-  letter-spacing: 2px;
   @media (max-width: 768px) {
     font-size: 0.8rem;
   }

@@ -42,7 +42,7 @@ export const PrimaryTextStyle = styled.p`
 export const SecondaryTextStyle = styled.p`
   font-weight: 300;
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 `;
 
 export const SectionTitle = styled(SecondaryTextStyle)`

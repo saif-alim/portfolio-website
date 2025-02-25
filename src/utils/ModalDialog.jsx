@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { PrimaryTextStyle } from "../components/Components";
 
@@ -14,8 +15,19 @@ const FormSubmittedModal = ({
     }
   });
   return (
-    <ModalOverlay onClick={onClose}>
+    <ModalOverlay
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      onClick={onClose}
+    >
+      {/* Modal Content */}
       <ModalContent
+        as={motion.div}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
+        exit={{ opacity: 0, scale: 0.99, transition: { duration: 0.05 } }}
         onClick={(e) => e.stopPropagation()}
         style={{ maxWidth: maxWidth, width: width }}
       >
@@ -29,6 +41,7 @@ const FormSubmittedModal = ({
 
 export default FormSubmittedModal;
 
+// Styled Components
 const ModalOverlay = styled.div`
   position: fixed;
   z-index: 10;
@@ -71,7 +84,7 @@ const CloseButton = styled.button`
     border-color: var(--color-accent);
   }
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 `;
 
 const ModalTitle = styled(PrimaryTextStyle)`
@@ -86,5 +99,5 @@ const ModalMessage = styled.p`
   font-size: 1rem;
   font-weight: 300;
   font-family: "Space Mono", serif;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 `;
