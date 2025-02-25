@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {
-  PrimaryTextStyle,
-  Section,
-  SectionTitle,
-} from "../components/Components";
+import { Section, SectionTitle } from "../components/Components";
+import FormSubmittedModal from "../utils/ModalDialog";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -18,7 +15,7 @@ const schema = z.object({
 });
 
 const ContactForm = () => {
-  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const {
     register,
@@ -45,7 +42,7 @@ const ContactForm = () => {
     },
     onSuccess: (response) => {
       setIsDialogOpen(true);
-      reset(); // Clear the form after successful submission
+      reset();
     },
     onError: (error) => {
       alert("Something went wrong. Please try again later.");
@@ -57,10 +54,6 @@ const ContactForm = () => {
     submit(data);
   };
 
-  const handleChildElementClick = (e) => {
-    e.stopPropagation();
-  };
-
   return (
     <ContactSection>
       <SectionTitle>Contact</SectionTitle>
@@ -68,19 +61,23 @@ const ContactForm = () => {
         <input type="hidden" {...register("subject")} />
         <Label>
           Name
-          <Input type="text" {...register("name")} />
+          <Input type="text" autocomplete="name" {...register("name")} />
           {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </Label>
 
         <Label>
           Email
-          <Input type="text" {...register("email")} />
+          <Input type="text" autocomplete="email" {...register("email")} />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Label>
 
         <Label>
           Message
-          <TextArea type="message" {...register("message")} />
+          <TextArea
+            type="message"
+            autocomplete="off"
+            {...register("message")}
+          />
           {errors.message && (
             <ErrorMessage>{errors.message.message}</ErrorMessage>
           )}
@@ -92,85 +89,20 @@ const ContactForm = () => {
       </FormContainer>
 
       {isDialogOpen && (
-        <ModalOverlay onClick={() => setIsDialogOpen(false)}>
-          <ModalContent onClick={(e) => handleChildElementClick(e)}>
-            <ModalTitle>Thank You!</ModalTitle>
-            <ModalMessage>
-              Your message has been sent successfully.
-            </ModalMessage>
-            <CloseButton onClick={() => setIsDialogOpen(false)}>
-              Close
-            </CloseButton>
-          </ModalContent>
-        </ModalOverlay>
+        <FormSubmittedModal
+          onClose={() => setIsDialogOpen(false)}
+          modalTitle="Thank You!"
+          modalMessage="Your message has been sent successfully."
+          maxWidth="300px"
+        />
       )}
     </ContactSection>
   );
 };
 
+export default ContactForm;
+
 // Styled components
-const ModalOverlay = styled.div`
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(4px);
-`;
-
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  text-align: center;
-  padding: 20px;
-  background-image: var(--background-gradient);
-  border-radius: 15px;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
-  @media (max-width: 768px) {
-    width: auto;
-    max-width: 95vw;
-  }
-`;
-
-const CloseButton = styled.button`
-  margin-top: 15px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  background: var(--background-gradient);
-  border: var(--border-style) var(--grey-dark-theme);
-  border-radius: 10px;
-  color: var(--color-foreground);
-  transition: border-color 0.3s ease-in-out;
-  &:hover {
-    border-color: var(--color-accent);
-  }
-  font-family: "Space Mono", serif;
-  letter-spacing: 4px;
-`;
-
-const ModalTitle = styled(PrimaryTextStyle)`
-  margin: 0;
-  padding-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-`;
-
-const ModalMessage = styled.p`
-  margin-top: 0px;
-  font-size: 1rem;
-  font-weight: 300;
-  font-family: "Space Mono", serif;
-  letter-spacing: 2px;
-`;
-
 const ErrorMessage = styled.p`
   color: red;
   font-size: 0.8rem;
@@ -277,5 +209,3 @@ const TextArea = styled.textarea`
     height: 150px;
   }
 `;
-
-export default ContactForm;
