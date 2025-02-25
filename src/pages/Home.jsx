@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from "react";
 import styled from "styled-components";
-import InstagramIcon from "../assets/instagram-icon.svg?react";
 import LinkedinIcon from "../assets/linkedin-icon.svg?react";
 import GithubIcon from "../assets/github-icon.svg?react";
 import LocationIcon from "../assets/location-icon.svg?react";
