@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from "react";
 import styled from "styled-components";
-import InstagramIcon from "../assets/instagram-icon.svg?react";
 import LinkedinIcon from "../assets/linkedin-icon.svg?react";
 import GithubIcon from "../assets/github-icon.svg?react";
 import LocationIcon from "../assets/location-icon.svg?react";
@@ -52,7 +51,7 @@ const Home = () => {
               <LocationIcon />
             </Icon>
             <div style={{ overflow: "hidden" }}>
-              <LocationText isHovered={isHovered}>
+              <LocationText style={{ left: isHovered ? "0" : "-100%" }}>
                 London,
                 <br />
                 United Kingdom
@@ -132,14 +131,14 @@ const Subtitle = styled(SecondaryTextStyle)`
 
 const LocationText = styled(SecondaryTextStyle)`
   position: relative;
-  left: ${({ isHovered }) => (isHovered ? "0" : "-100%")};
+  background-image: var(--grey-gradient);
+  color: transparent;
+  background-clip: text;
   transition: left 0.3s ease-in-out;
   margin: 0;
   font-size: 1rem;
   line-height: 1.1;
   overflow: hidden;
-  letter-spacing: 2px;
-  color: var(--grey-dark-theme);
   @media (max-width: 768px) {
     font-size: 0.8rem;
   }

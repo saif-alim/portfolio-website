@@ -67,21 +67,13 @@ const Experience = () => {
           startDate="May 2024"
           description={[
             <>
-              Developed and maintained the <Highlight>Android</Highlight>{" "}
-              application using <Highlight>Kotlin</Highlight> and{" "}
-              <Highlight>Java</Highlight>.
+              Learnt about the project development lifecycle and different
+              methodologies
             </>,
+            <>Acquired skills in Java, Python, JavaScript, C#, PHP, and SQL</>,
             <>
-              Assisted in maintaining the <Highlight>iOS</Highlight>{" "}
-              application.
-            </>,
-            <>
-              Contributed to the development of a{" "}
-              <Highlight>TypeScript</Highlight> based web application.
-            </>,
-            <>
-              Assisted in maintaining and debugging the company's{" "}
-              <Highlight>Ruby on Rails</Highlight> application.
+              Developed web applications, cross-platform mobile applications,
+              video games
             </>,
           ]}
         />

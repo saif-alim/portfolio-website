@@ -102,12 +102,13 @@ const GridItem = ({
 };
 
 const GridItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   overflow: hidden;
   max-height: 620px;
   align-items: center;
-  display: flex;
-  flex-direction: column;
   background-image: var(--background-gradient);
   border-radius: 15px;
   color: white;
@@ -142,7 +143,7 @@ const GridItemSubtitle = styled.p`
   font-weight: 300;
   color: var(--grey-dark-theme);
   font-family: "Space Mono", serif;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 `;
 
 const GridItemDescription = styled.p`
