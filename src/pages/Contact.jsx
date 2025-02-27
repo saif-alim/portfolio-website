@@ -62,13 +62,13 @@ const ContactForm = () => {
         <input type="hidden" {...register("subject")} />
         <Label>
           Name
-          <Input type="text" autocomplete="name" {...register("name")} />
+          <Input type="text" autoComplete="name" {...register("name")} />
           {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </Label>
 
         <Label>
           Email
-          <Input type="text" autocomplete="email" {...register("email")} />
+          <Input type="text" autoComplete="email" {...register("email")} />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Label>
 
@@ -76,7 +76,7 @@ const ContactForm = () => {
           Message
           <TextArea
             type="message"
-            autocomplete="off"
+            autoComplete="off"
             {...register("message")}
           />
           {errors.message && (
