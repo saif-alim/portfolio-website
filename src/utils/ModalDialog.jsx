@@ -88,6 +88,7 @@ const CloseButton = styled.button`
 `;
 
 const ModalTitle = styled(PrimaryTextStyle)`
+  color: var(--color-foreground);
   margin: 0;
   padding-bottom: 5px;
   text-transform: uppercase;
@@ -95,6 +96,7 @@ const ModalTitle = styled(PrimaryTextStyle)`
 `;
 
 const ModalMessage = styled.p`
+  color: var(--color-foreground);
   margin-top: 0px;
   font-size: 1rem;
   font-weight: 300;
